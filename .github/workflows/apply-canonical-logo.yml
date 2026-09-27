@@ -1,0 +1,80 @@
+name: Apply canonical Rhythm & Deutsch logo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/apply-canonical-logo.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Patch deployed companion
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64, gzip, re
+
+          p = Path("100-verbs/index.html")
+          bootstrap = p.read_text(encoding="utf-8")
+
+          m = re.search(r'const b="([^"]+)"', bootstrap)
+          if not m:
+              raise SystemExit("Embedded app payload not found")
+
+          html = gzip.decompress(base64.b64decode(m.group(1))).decode("utf-8")
+
+          old_svg = re.compile(r'<svg class="brand-mark"[\s\S]*?</svg>', re.M)
+          html, count = old_svg.subn(
+              '<img class="brand-mark" src="assets/logo.webp" alt="Rhythm &amp; Deutsch logo" />',
+              html,
+              count=1,
+          )
+
+          if count == 0 and 'src="assets/logo.webp"' not in html:
+              raise SystemExit("Brand mark not found")
+
+          html = html.replace(
+              '.brand-mark{width:34px;height:34px;border-radius:50%;object-fit:cover}',
+              '.brand-mark{width:34px;height:34px;border-radius:50%;object-fit:contain;display:block;background:transparent}'
+          )
+
+          if 'rel="icon"' not in html:
+              html = html.replace(
+                  '<title>100 German Verbs — Rhythm & Deutsch</title>',
+                  '<title>100 German Verbs — Rhythm & Deutsch</title>\n'
+                  '  <link rel="icon" type="image/webp" href="assets/logo.webp" />\n'
+                  '  <link rel="apple-touch-icon" href="assets/logo.webp" />'
+              )
+
+          payload = base64.b64encode(gzip.compress(html.encode("utf-8"), compresslevel=9)).decode("ascii")
+          rebuilt = (
+              '<!doctype html><meta charset="utf-8">'
+              '<meta name="viewport" content="width=device-width,initial-scale=1">'
+              '<title>100 German Verbs — Rhythm & Deutsch</title>'
+              '<script src="https://cdn.jsdelivr.net/npm/fflate@0.8.2/umd/index.js"></script>'
+              '<script>const b="' + payload + '";'
+              'const x=Uint8Array.from(atob(b),c=>c.charCodeAt(0));'
+              'const h=new TextDecoder().decode(fflate.gunzipSync(x));'
+              'document.open();document.write(h);document.close();</script>'
+              '<noscript>Please enable JavaScript to use the Rhythm & Deutsch companion.</noscript>'
+          )
+          p.write_text(rebuilt, encoding="utf-8")
+          PY
+
+      - name: Commit corrected branding
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 100-verbs/index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Use canonical Rhythm & Deutsch logo"
+          git push
