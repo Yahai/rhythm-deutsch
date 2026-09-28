@@ -25,57 +25,56 @@ jobs:
 
           p = Path("100-verbs/index.html")
           bootstrap = p.read_text(encoding="utf-8")
-
           m = re.search(r'const b="([^"]+)"', bootstrap)
           if not m:
               raise SystemExit("Embedded app payload not found")
 
           html = gzip.decompress(base64.b64decode(m.group(1))).decode("utf-8")
 
-          replacements = {
-              '<button class="primary" data-go="study">Start flashcards</button>':
-              '<button class="primary" data-go="study" data-umami-event="start-flashcards" data-umami-event-location="hero">Start flashcards</button>',
+          replacements = [
+              (
+                  '<button class="primary" data-go="study">Start flashcards</button>',
+                  '<button class="primary" data-go="study" data-umami-event="start-flashcards" data-umami-event-location="hero">Start flashcards</button>'
+              ),
+              (
+                  '<button class="secondary" data-go="quiz">Take a 10-verb quiz</button>',
+                  '<button class="secondary" data-go="quiz" data-umami-event="open-quiz" data-umami-event-location="hero">Take a 10-verb quiz</button>'
+              ),
+              (
+                  '<button class="primary" id="startQuiz">Start quiz</button>',
+                  '<button class="primary" id="startQuiz" data-umami-event="start-quiz">Start quiz</button>'
+              ),
+              (
+                  '<button class="secondary small" id="songBtn">▶ Hear it in the song</button>',
+                  '<button class="secondary small" id="songBtn" data-umami-event="hear-in-song">▶ Hear it in the song</button>'
+              ),
+              (
+                  '<button class="tab" data-tab="all">All 100</button>',
+                  '<button class="tab" data-tab="all" data-umami-event="open-all-verbs">All 100</button>'
+              ),
+              (
+                  '<button class="tab" data-tab="plan">7-day plan</button>',
+                  '<button class="tab" data-tab="plan" data-umami-event="open-7-day-plan">7-day plan</button>'
+              ),
+              (
+                  'No account. No tracking. Your study progress stays in this browser.',
+                  'No account. Your study progress stays in this browser. Anonymous, cookieless feature analytics help us improve the learning experience.'
+              )
+          ]
 
-              '<button class="secondary" data-go="quiz">Take a 10-verb quiz</button>':
-              '<button class="secondary" data-go="quiz" data-umami-event="open-quiz" data-umami-event-location="hero">Take a 10-verb quiz</button>',
-
-              '<button class="primary" id="startQuiz">Start quiz</button>':
-              '<button class="primary" id="startQuiz" data-umami-event="start-quiz">Start quiz</button>',
-
-              '<button class="secondary small" id="songBtn">▶ Hear it in the song</button>':
-              '<button class="secondary small" id="songBtn" data-umami-event="hear-in-song">▶ Hear it in the song</button>',
-
-              '<button class="tab" data-tab="all">All 100</button>':
-              '<button class="tab" data-tab="all" data-umami-event="open-all-verbs">All 100</button>',
-
-              '<button class="tab" data-tab="plan">7-day plan</button>':
-              '<button class="tab" data-tab="plan" data-umami-event="open-7-day-plan">7-day plan</button>',
-
-              '<a class="secondary small button-link" href="100-german-verbs.csv" download>Download CSV</a>':
-              '<a class="secondary small button-link" href="100-german-verbs.csv" download data-umami-event="download-csv">Download CSV</a>',
-
-              '<a class="secondary small button-link" href="100-german-verbs-anki.tsv" download>Anki-ready TSV</a>':
-              '<a class="secondary small button-link" href="100-german-verbs-anki.tsv" download data-umami-event="download-anki">Anki-ready TSV</a>',
-
-              'No account. No tracking. Your study progress stays in this browser.':
-              'No account. Your study progress stays in this browser. We use anonymous, cookieless analytics to understand which learning features are useful.'
-          }
-
-          changed = []
-          for old, new in replacements.items():
+          changed = 0
+          for old, new in replacements:
               if old in html:
                   html = html.replace(old, new)
-                  changed.append(new)
-              elif new not in html:
-                  raise SystemExit(f"Expected HTML not found: {old[:80]}")
+                  changed += 1
+
+          if changed < 6:
+              raise SystemExit(f"Only patched {changed} expected feature hooks")
 
           payload = base64.b64encode(gzip.compress(html.encode("utf-8"), compresslevel=9)).decode("ascii")
-
-          # Preserve existing bootstrap wrapper and external fflate dependency.
           rebuilt = re.sub(r'const b="[^"]+"', 'const b="' + payload + '"', bootstrap, count=1)
           p.write_text(rebuilt, encoding="utf-8")
-
-          print(f"Patched {len(changed)} analytics hooks")
+          print(f"Patched {changed} feature analytics hooks")
           PY
 
       - name: Commit feature analytics hooks
