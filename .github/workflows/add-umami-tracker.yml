@@ -1,0 +1,65 @@
+name: Add Umami tracker
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/add-umami-tracker.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Inject Umami tracking script
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64, gzip, re
+
+          p = Path("100-verbs/index.html")
+          bootstrap = p.read_text(encoding="utf-8")
+          m = re.search(r'const b="([^"]+)"', bootstrap)
+          if not m:
+              raise SystemExit("Embedded app payload not found")
+
+          html = gzip.decompress(base64.b64decode(m.group(1))).decode("utf-8")
+          tracker = '<script defer src="https://cloud.umami.is/script.js" data-website-id="da624a16-4aff-4937-9284-92357a6e5438"></script>'
+
+          if tracker not in html:
+              if '</head>' not in html:
+                  raise SystemExit("No </head> found in embedded app")
+              html = html.replace('</head>', f'  {tracker}\n</head>', 1)
+
+          required = [
+              'data-umami-event="start-flashcards"',
+              'data-umami-event="open-quiz"',
+              'data-umami-event="start-quiz"',
+              'data-umami-event="hear-in-song"',
+              'data-umami-event="open-all-verbs"',
+              'data-umami-event="open-7-day-plan"',
+          ]
+          missing = [x for x in required if x not in html]
+          if missing:
+              raise SystemExit("Missing event hooks: " + ", ".join(missing))
+
+          payload = base64.b64encode(gzip.compress(html.encode("utf-8"), compresslevel=9)).decode("ascii")
+          rebuilt = re.sub(r'const b="[^"]+"', 'const b="' + payload + '"', bootstrap, count=1)
+          p.write_text(rebuilt, encoding="utf-8")
+          print("Umami tracker inserted and feature hooks verified")
+          PY
+
+      - name: Commit Umami tracker
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 100-verbs/index.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Add Umami cookieless analytics"
+          git push
