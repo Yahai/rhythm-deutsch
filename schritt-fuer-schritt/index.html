@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#11110f">
+<meta name="description" content="Practice five essential German verbs from Rhythm & Deutsch: sprechen, sehen, geben, nehmen and fahren.">
+<title>Schritt für Schritt — Rhythm & Deutsch</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="flagbar"></div>
+<nav><div class="wrap navrow"><a class="brand" href="./"><span class="mark">R&D</span><span>Rhythm &amp; Deutsch</span></a><div class="navlinks"><a href="#learn">Learn</a><a href="#practice">Practice</a><a href="#progress">Progress</a></div></div></nav>
+<header class="hero"><div class="wrap">
+<div class="eyebrow">Conjugation Through Music · Vol. 1</div>
+<h1>Schritt für Schritt</h1>
+<p>Turn five high-frequency German verbs into instinct. Learn the forms, find them in the song, then practise until recall becomes automatic.</p>
+<div class="actions"><a class="btn primary" href="#practice">Start practice →</a><a class="btn secondary" href="#learn">Study the verbs</a><button class="btn ghost" id="printBtn">Print lesson</button></div>
+<div class="songnote" id="songNote">Song timestamps are shown below. Direct “hear it” links activate when this companion is opened from the video description.</div>
+<div class="meta"><span>5 verbs</span><span>30 Präsens forms</span><span>5 practice modes</span><span>No signup</span><span>Progress stays on this device</span></div>
+</div></header>
+<main>
+<section class="section" id="learn"><div class="wrap">
+<div class="sectionhead"><div><div class="eyebrow">01 · Learn</div><h2>Know the pattern.</h2></div><p>Tap a verb. Pay special attention to the stem changes in <strong>du</strong> and <strong>er/sie/es</strong>.</p></div>
+<div class="verbgrid" id="verbGrid"></div>
+<article class="lesson" id="lesson"></article>
+</div></section>
+<section class="section" id="practice"><div class="wrap">
+<div class="sectionhead"><div><div class="eyebrow">02 · Practice</div><h2>Make recall automatic.</h2></div><p>Meaning, conjugation, sentence completion, reverse recall and song-timestamp recall all draw from the same lesson.</p></div>
+<div class="practice"><div class="tabs" id="tabs"></div><div class="quiz">
+<div class="qmeta"><span id="qMode"></span><span id="qCount"></span></div>
+<div class="question" id="question"></div><div class="answers" id="answers"></div>
+<div class="feedback" id="feedback"></div>
+<div class="quizfoot"><span id="score"></span><button id="nextBtn" disabled>Next →</button></div>
+</div></div>
+</div></section>
+<section class="section" id="progress"><div class="wrap">
+<div class="sectionhead"><div><div class="eyebrow">03 · Retain</div><h2>Come back tomorrow.</h2></div><p>Short, repeated recall beats one long cram session. Your progress is saved only in this browser.</p></div>
+<div class="twocol">
+<div class="panel"><div class="small">REINFORCED FORMS</div><div class="big" id="mastered">0</div><div class="bar"><span id="bar"></span></div><div class="small" id="progressLabel">0 of 30 conjugation forms reinforced</div>
+<div class="downloads"><button class="btn secondary" id="csvBtn">Download CSV</button><button class="btn secondary" id="ankiBtn">Download Anki TSV</button><button class="btn ghost" id="resetBtn">Reset progress</button></div></div>
+<div class="panel"><div class="small">3-PASS ROUTINE</div><ol class="routine"><li><strong>Listen</strong><span>Watch once without stopping. Let the forms land in rhythm.</span></li><li><strong>Notice</strong><span>Compare the du and er/sie/es stem changes here.</span></li><li><strong>Recall</strong><span>Do 10–15 questions without looking back at the tables.</span></li></ol></div>
+</div>
+</div></section>
+</main>
+<footer><div class="wrap footrow"><div><strong>Rhythm &amp; Deutsch</strong><p>Learn German through music, rhythm and repetition. Listen. Repeat. Remember.</p></div><div class="small">LANGSAM · SCHRITT FÜR SCHRITT</div></div></footer>
+<script src="app.js"></script>
+</body>
+</html>
