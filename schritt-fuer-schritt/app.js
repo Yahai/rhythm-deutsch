@@ -17,13 +17,15 @@ function $(s){return document.querySelector(s)}
 function $$(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
 function fmt(t){var m=Math.floor(t/60),s=t-m*60;return m+":"+String(s.toFixed(2)).padStart(5,"0")}
 function yurl(t){return "https://www.youtube.com/watch?v="+VIDEO_ID+"&t="+Math.max(0,Math.floor(t)-1)+"s"}
-function hear(t,label){return '<a class="hear" href="'+yurl(t)+'" target="_blank" rel="noopener">▶ '+(label||"Hear in song")+" · "+fmt(t)+"</a>"}
+function hear(t,label){return '<a class="hear hear-song" href="'+yurl(t)+'" target="_blank" rel="noopener">▶ '+(label||"Hear in song")+" · "+fmt(t)+"</a>"}
+function speakControl(text,label){return '<button type="button" class="hear hear-german speak-control" data-speak="'+encodeURIComponent(text)+'">🔊 '+(label||"Hear German")+'</button>'}
+function audioPair(text,t,songLabel){return '<div class="audio-pair">'+speakControl(text,"Hear German")+hear(t,songLabel||"Hear in song")+'</div>'}
 function save(){localStorage.setItem(key,JSON.stringify(progress));updateProgress()}
 function formKey(v,f){return v.inf+":"+f[0]}
 function allCards(){var out=[];LESSON.verbs.forEach(function(v,vi){v.forms.forEach(function(f,fi){out.push({id:out.length+1,vi:vi,fi:fi,v:v,f:f,key:formKey(v,f)})})});return out}
 function exampleFor(c){return c.v.examples[c.fi%c.v.examples.length]}
 function renderVerbs(){var g=$("#verbGrid");g.innerHTML=LESSON.verbs.map(function(v,i){return '<button class="verbchip '+(i===state.verb?"active":"")+'" data-i="'+i+'"><strong>'+v.inf+"</strong><span>"+v.en+"</span></button>"}).join("");$$(".verbchip").forEach(function(b){b.onclick=function(){state.verb=+b.dataset.i;renderVerbs();renderLesson()}})}
-function renderLesson(){var v=LESSON.verbs[state.verb];$("#lesson").innerHTML='<div class="lessontop"><div><h3 class="verbtitle">'+v.inf+'</h3><div class="meaning">'+v.en+" · <strong>"+v.note+"</strong></div></div>"+hear(v.start,"Hear section")+'</div><div class="tablewrap"><table class="conj"><thead><tr><th>Person</th><th>Präsens</th><th>Song</th></tr></thead><tbody>'+v.forms.map(function(f){return "<tr><td>"+f[0]+"</td><td>"+f[1]+"</td><td>"+hear(f[2])+"</td></tr>"}).join("")+'</tbody></table></div><div class="examples">'+v.examples.map(function(x){return '<div class="example"><div class="de">'+x[0]+'</div><div class="en">'+x[1]+'</div><div style="margin-top:10px">'+hear(x[2],"Hear example")+"</div></div>"}).join("")+"</div>"}
+function renderLesson(){var v=LESSON.verbs[state.verb];$("#lesson").innerHTML='<div class="lessontop"><div><h3 class="verbtitle">'+v.inf+'</h3><div class="meaning">'+v.en+" · <strong>"+v.note+"</strong></div></div>"+audioPair(v.inf,v.start,"Hear section")+'</div><div class="tablewrap"><table class="conj"><thead><tr><th>Person</th><th>Präsens</th><th>Audio</th></tr></thead><tbody>'+v.forms.map(function(f){var spoken=f[0]+" "+f[1];return "<tr><td>"+f[0]+"</td><td>"+f[1]+"</td><td>"+audioPair(spoken,f[2],"Hear in song")+"</td></tr>"}).join("")+'</tbody></table></div><div class="examples">'+v.examples.map(function(x){return '<div class="example"><div class="de">'+x[0]+'</div><div class="en">'+x[1]+'</div><div class="example-audio">'+audioPair(x[0],x[2],"Hear in song")+"</div></div>"}).join("")+"</div>"}
 function resetCardPool(){var filter=$("#cardVerbFilter").value;state.cardPool=allCards().filter(function(c){return filter==="all"||c.v.inf===filter});state.cardIndex=0;renderCard()}
 function cardFrontBack(c){var dir=state.cardDirection;if(dir==="mixed")dir=c.id%2?"prompt-form":"form-prompt";if(dir==="prompt-form")return{kick:"Conjugate",front:c.f[0]+" + "+c.v.inf,back:c.f[0]+" "+c.f[1]};return{kick:"Identify",front:c.f[0]+" "+c.f[1],back:c.f[0]+" + "+c.v.inf}}
 function currentCard(){return state.cardPool[state.cardIndex]||allCards()[0]}
@@ -60,6 +62,7 @@ $("#prevCard").onclick=prevCard;
 $("#knownCard").onclick=function(){markCard("known")};
 $("#reviewCard").onclick=function(){markCard("review")};
 $("#speakCard").onclick=function(){var c=currentCard();speakGerman(c.f[0]+" "+c.f[1])};
+document.body.addEventListener("click",function(e){var b=e.target.closest(".speak-control");if(!b)return;speakGerman(decodeURIComponent(b.dataset.speak))});
 $("#nextBtn").onclick=nextQuestion;
 $("#csvBtn").onclick=csv;
 $("#ankiBtn").onclick=anki;
