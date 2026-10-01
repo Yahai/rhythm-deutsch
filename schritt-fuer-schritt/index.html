@@ -2,47 +2,195 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#11110f">
 <meta name="description" content="Practice five essential German verbs from Rhythm & Deutsch: machen, gehen, kommen, haben and sein.">
 <title>Schritt für Schritt — Rhythm & Deutsch</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" href="./rhythm-deutsch-logo.png">
+<link rel="apple-touch-icon" href="./rhythm-deutsch-logo.png">
+<link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 <div class="flagbar"></div>
-<nav><div class="wrap navrow"><a class="brand" href="./"><img class="brandlogo" src="rhythm-deutsch-logo.png" alt="Rhythm &amp; Deutsch logo"><span>Rhythm &amp; Deutsch</span></a><div class="navlinks"><a href="#learn">Learn</a><a href="#practice">Practice</a><a href="#progress">Progress</a></div></div></nav>
-<header class="hero"><div class="wrap">
-<div class="eyebrow">Conjugation Through Music · Vol. 1</div>
-<h1>Schritt für Schritt</h1>
-<p>Turn five high-frequency German verbs into instinct: <strong>machen, gehen, kommen, haben</strong> and <strong>sein</strong>. Learn the forms, reconnect them to the song, then practise until recall becomes automatic.</p>
-<div class="actions"><a class="btn primary" href="#practice">Start practice →</a><a class="btn secondary" href="#learn">Study the verbs</a><a class="btn secondary" href="https://youtu.be/YMZONJcQjhY" target="_blank" rel="noopener">Watch the song ↗</a><button class="btn ghost" id="printBtn">Print lesson</button></div>
-<div class="meta"><span>5 verbs</span><span>30 Präsens forms</span><span>5 practice modes</span><span>No signup</span><span>Progress stays on this device</span></div>
-</div></header>
+
+<nav>
+  <div class="wrap navrow">
+    <a class="brand" href="#top">
+      <img class="brandlogo" src="./rhythm-deutsch-logo.png" alt="Rhythm & Deutsch logo">
+      <span>Rhythm <b>&</b> Deutsch</span>
+    </a>
+    <div class="navlinks">
+      <a href="#learn">Learn</a>
+      <a href="#practice">Practice</a>
+      <a href="#progress">Progress</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Conjugation Through Music · Vol. 1</div>
+    <h1>Schritt für Schritt</h1>
+    <p>Turn five high-frequency German verbs into instinct: <strong>machen, gehen, kommen, haben</strong> and <strong>sein</strong>. Learn the forms, reconnect them to the song, then practise until recall becomes automatic.</p>
+    <div class="actions">
+      <a class="btn primary" href="#flashcards">Start flashcards →</a>
+      <a class="btn secondary" href="#practice">Take a quiz</a>
+      <a class="btn secondary" href="https://youtu.be/YMZONJcQjhY" target="_blank" rel="noopener">Watch the song ↗</a>
+      <button class="btn ghost" id="printBtn">Print lesson</button>
+    </div>
+    <div class="meta">
+      <span>5 verbs</span><span>30 Präsens forms</span><span>5 practice modes</span><span>No signup</span><span>Progress stays on this device</span>
+    </div>
+  </div>
+</header>
+
 <main>
-<section class="section" id="learn"><div class="wrap">
-<div class="sectionhead"><div><div class="eyebrow">01 · Learn</div><h2>Know the pattern.</h2></div><p>Tap a verb. Notice the regular endings in <strong>machen, gehen</strong> and <strong>kommen</strong>, then contrast them with the irregular forms of <strong>haben</strong> and <strong>sein</strong>.</p></div>
-<div class="verbgrid" id="verbGrid"></div><div class="fliphead"><span class="eyebrow">Quick recall cards</span><span class="small">Tap or press Enter to flip</span></div><div class="flipgrid" id="flipGrid"></div>
-<article class="lesson" id="lesson"></article>
-</div></section>
-<section class="section" id="practice"><div class="wrap">
-<div class="sectionhead"><div><div class="eyebrow">02 · Practice</div><h2>Make recall automatic.</h2></div><p>Meaning, conjugation, sentence completion, reverse recall and song recall all draw from the same Vol. 1 lesson.</p></div>
-<div class="practice"><div class="tabs" id="tabs"></div><div class="quiz">
-<div class="qmeta"><span id="qMode"></span><span id="qCount"></span></div>
-<div class="question" id="question"></div><div class="answers" id="answers"></div>
-<div class="feedback" id="feedback"></div>
-<div class="quizfoot"><span id="score"></span><button id="nextBtn" disabled>Next →</button></div>
-</div></div>
-</div></section>
-<section class="section" id="progress"><div class="wrap">
-<div class="sectionhead"><div><div class="eyebrow">03 · Retain</div><h2>Come back tomorrow.</h2></div><p>Short, repeated recall beats one long cram session. Your progress is saved only in this browser.</p></div>
-<div class="twocol">
-<div class="panel"><div class="small">REINFORCED FORMS</div><div class="big" id="mastered">0</div><div class="bar"><span id="bar"></span></div><div class="small" id="progressLabel">0 of 30 conjugation forms reinforced</div>
-<div class="downloads"><button class="btn secondary" id="csvBtn">Download CSV</button><button class="btn secondary" id="ankiBtn">Download Anki TSV</button><button class="btn ghost" id="resetBtn">Reset progress</button></div></div>
-<div class="panel"><div class="small">3-PASS ROUTINE</div><ol class="routine"><li><strong>Listen</strong><span>Watch once without stopping. Let the forms land in rhythm.</span></li><li><strong>Notice</strong><span>Compare the endings, especially <em>hast/hat</em> and the changing forms of <em>sein</em>.</span></li><li><strong>Recall</strong><span>Do 10–15 questions without looking back at the tables.</span></li></ol></div>
-</div>
-</div></section>
+<section class="section" id="learn">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">01 · Learn</div><h2>Know the pattern.</h2></div>
+      <p>Choose a verb to inspect its full conjugation, examples and exact song timestamps.</p>
+    </div>
+
+    <div class="verbgrid" id="verbGrid"></div>
+    <article class="lesson" id="lesson"></article>
+
+    <div class="flashcard-section" id="flashcards">
+      <div class="flashcard-heading">
+        <div>
+          <div class="eyebrow">30 conjugation flashcards</div>
+          <h3>Recall before you reveal.</h3>
+        </div>
+        <p>Built from the learning loop that works in the 100 Verbs companion: prompt → reveal → hear → rate → repeat.</p>
+      </div>
+
+      <div class="flash-toolbar">
+        <label>Verb
+          <select id="cardVerbFilter">
+            <option value="all">All five verbs</option>
+            <option value="machen">machen</option>
+            <option value="gehen">gehen</option>
+            <option value="kommen">kommen</option>
+            <option value="haben">haben</option>
+            <option value="sein">sein</option>
+          </select>
+        </label>
+        <label>Direction
+          <select id="cardDirection">
+            <option value="prompt-form">Person + infinitive → form</option>
+            <option value="form-prompt">Form → person + infinitive</option>
+            <option value="mixed">Mixed</option>
+          </select>
+        </label>
+        <button class="btn ghost compact" id="shuffleCards">↝ Shuffle</button>
+      </div>
+
+      <div class="flash-status">
+        <span id="cardPosition">1 / 30</span>
+        <span id="cardContext">machen · regular</span>
+      </div>
+
+      <div class="flashcard-wrap">
+        <button class="flashcard" id="flashcard" type="button" aria-label="Flip flashcard" aria-pressed="false">
+          <span class="flashcard-inner">
+            <span class="card-face card-front">
+              <span class="card-number" id="frontNumber">01</span>
+              <span class="card-kicker" id="frontKicker">Conjugate</span>
+              <strong class="card-prompt" id="frontPrompt">ich + machen</strong>
+              <span class="tap-hint">Tap to reveal</span>
+            </span>
+            <span class="card-face card-back">
+              <span class="card-number" id="backNumber">01</span>
+              <strong class="card-answer" id="backAnswer">ich mache</strong>
+              <span class="card-example-de" id="cardExampleDe">Ich mache das heute.</span>
+              <span class="card-example-en" id="cardExampleEn">I’ll do that today.</span>
+            </span>
+          </span>
+        </button>
+      </div>
+
+      <div class="flash-audio">
+        <button class="btn secondary compact" id="speakCard">🔊 Hear German</button>
+        <a class="btn secondary compact" id="songCard" href="https://youtu.be/YMZONJcQjhY" target="_blank" rel="noopener">▶ Hear it in the song</a>
+      </div>
+      <div class="flash-rating">
+        <button class="review-btn" id="reviewCard">Practice again</button>
+        <button class="known-btn" id="knownCard">I know this ✓</button>
+      </div>
+      <div class="flash-nav">
+        <button class="btn ghost compact" id="prevCard">← Previous</button>
+        <button class="btn ghost compact" id="nextCard">Next →</button>
+      </div>
+      <p class="keyboard-note">Keyboard: Space = flip · ←/→ = move · 1 = practice again · 2 = known</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="practice">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">02 · Practice</div><h2>Make recall automatic.</h2></div>
+      <p>Meaning, conjugation, sentence completion, reverse recall and timestamp-based song recall all draw from the same lesson.</p>
+    </div>
+    <div class="practice">
+      <div class="tabs" id="tabs"></div>
+      <div class="quiz">
+        <div class="qmeta"><span id="qMode"></span><span id="qCount"></span></div>
+        <div class="question" id="question"></div>
+        <div class="answers" id="answers"></div>
+        <div class="feedback" id="feedback"></div>
+        <div class="quizfoot"><span id="score"></span><button id="nextBtn" disabled>Next →</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="progress">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">03 · Retain</div><h2>Come back tomorrow.</h2></div>
+      <p>Short, repeated recall beats one long cram session. Your progress is saved only in this browser.</p>
+    </div>
+
+    <div class="retain-grid">
+      <article class="retain-card">
+        <div class="retain-title">REINFORCED FORMS</div>
+        <div class="retain-number" id="mastered">0</div>
+        <div class="bar"><span id="bar"></span></div>
+        <div class="retain-copy" id="progressLabel">0 of 30 conjugation forms reinforced</div>
+        <div class="downloads">
+          <button class="btn secondary compact" id="csvBtn">Download CSV</button>
+          <button class="btn secondary compact" id="ankiBtn">Download Anki TSV</button>
+          <button class="btn ghost compact" id="resetBtn">Reset progress</button>
+        </div>
+      </article>
+
+      <article class="retain-card">
+        <div class="retain-title">3-PASS ROUTINE</div>
+        <ol class="routine">
+          <li><div><strong>Listen</strong><span>Watch once without stopping. Let the forms land in rhythm.</span></div></li>
+          <li><div><strong>Notice</strong><span>Compare the endings, especially <em>hast/hat</em> and the changing forms of <em>sein</em>.</span></div></li>
+          <li><div><strong>Recall</strong><span>Do 10–15 questions without looking back at the tables.</span></div></li>
+        </ol>
+      </article>
+    </div>
+  </div>
+</section>
 </main>
-<footer><div class="wrap footrow"><div class="footerbrand"><img class="footerbrandlogo" src="rhythm-deutsch-logo.png" alt="Rhythm &amp; Deutsch logo"><div><strong>Rhythm &amp; Deutsch</strong><p>Learn German through music, rhythm and repetition. Listen. Repeat. Remember.</p><a class="songlink" href="https://youtu.be/YMZONJcQjhY" target="_blank" rel="noopener">Watch Schritt für Schritt on YouTube ↗</a></div></div><div class="small">LANGSAM · SCHRITT FÜR SCHRITT</div></div></footer>
-<script src="app.js"></script>
+
+<footer>
+  <div class="wrap footrow">
+    <div class="footerbrand">
+      <img class="footerbrandlogo" src="./rhythm-deutsch-logo.png" alt="Rhythm & Deutsch logo">
+      <div>
+        <strong>Rhythm & Deutsch</strong>
+        <p>Learn German through music, rhythm and repetition. Listen. Repeat. Remember.</p>
+        <a class="songlink" href="https://youtu.be/YMZONJcQjhY" target="_blank" rel="noopener">Watch Schritt für Schritt on YouTube ↗</a>
+      </div>
+    </div>
+    <div class="small">LANGSAM · SCHRITT FÜR SCHRITT</div>
+  </div>
+</footer>
+<script src="./app.js"></script>
 </body>
 </html>
