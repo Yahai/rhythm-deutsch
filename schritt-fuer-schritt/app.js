@@ -53,7 +53,10 @@ function updateProgress(){var m=Math.min(30,Object.keys(progress.mastered).lengt
 function dl(name,text,type){var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type:type||"text/plain"}));a.download=name;a.click();setTimeout(function(){URL.revokeObjectURL(a.href)},500)}
 function csv(){var rows=["verb,meaning,person,form,timestamp,youtube"];LESSON.verbs.forEach(function(v){v.forms.forEach(function(f){rows.push([v.inf,v.en,f[0],f[1],fmt(f[2]),yurl(f[2])].map(function(x){return '"'+String(x).replaceAll('"','""')+'"'}).join(","))})});dl("schritt-fuer-schritt-vol-1.csv",rows.join("\n"),"text/csv")}
 function anki(){var rows=[];LESSON.verbs.forEach(function(v){v.forms.forEach(function(f){rows.push(f[0]+" "+v.inf+"\t"+f[0]+" "+f[1]+"\t"+v.en+" · "+fmt(f[2]))})});dl("schritt-fuer-schritt-vol-1-anki.tsv",rows.join("\n"),"text/tab-separated-values")}
-$("#flashcard").onclick=function(){var on=this.classList.toggle("flipped");this.setAttribute("aria-pressed",on?"true":"false")};
+var swipeStartX=0,swipeStartY=0,suppressCardClick=false;
+$("#flashcard").onclick=function(){if(suppressCardClick)return;var on=this.classList.toggle("flipped");this.setAttribute("aria-pressed",on?"true":"false")};
+$("#flashcard").addEventListener("touchstart",function(e){if(!e.touches||!e.touches.length)return;swipeStartX=e.touches[0].clientX;swipeStartY=e.touches[0].clientY},{passive:true});
+$("#flashcard").addEventListener("touchend",function(e){if(!e.changedTouches||!e.changedTouches.length)return;var dx=e.changedTouches[0].clientX-swipeStartX,dy=e.changedTouches[0].clientY-swipeStartY;if(Math.abs(dx)<50||Math.abs(dx)<=Math.abs(dy)*1.15)return;suppressCardClick=true;if(dx<0)nextCard();else prevCard();setTimeout(function(){suppressCardClick=false},250)},{passive:true});
 $("#cardVerbFilter").onchange=resetCardPool;
 $("#cardDirection").onchange=function(){state.cardDirection=this.value;renderCard()};
 $("#shuffleCards").onclick=shuffleCards;
