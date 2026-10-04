@@ -1,5 +1,5 @@
 (function(){
-var qs=new URLSearchParams(location.search),VIDEO_ID=qs.get("v")||"";
+var qs=new URLSearchParams(location.search),VIDEO_ID=qs.get("v")||"y1NWwTHIgBA";
 var LESSON={verbs:[
 {inf:"sprechen",en:"to speak",note:"stem change e → i",start:30.05,forms:[["ich","spreche",30.05],["du","sprichst",31.23],["er / sie / es","spricht",32.40],["wir","sprechen",34.45],["ihr","sprecht",35.89],["sie / Sie","sprechen",38.97]],examples:[["Ich spreche Deutsch.","I speak German.",41.95],["Sprichst du Englisch?","Do you speak English?",43.71]]},
 {inf:"sehen",en:"to see",note:"stem change e → ie",start:45.08,forms:[["ich","sehe",45.08],["du","siehst",46.23],["er / sie / es","sieht",47.31],["wir","sehen",49.65],["ihr","seht",50.75],["sie / Sie","sehen",52.27]],examples:[["Ich sehe dich.","I see you.",54.29],["Siehst du das?","Do you see that?",55.70]]},
