@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#11110f">
+<meta name="description" content="Practice five essential German modal verbs from Rhythm & Deutsch: können, müssen, wollen, dürfen and sollen.">
+<title>Schritt für Schritt Vol. 3 — German Modal Verbs | Rhythm & Deutsch</title>
+<link rel="icon" type="image/webp" href="../100-verbs/assets/logo.webp?v=20261006">
+<link rel="apple-touch-icon" href="../100-verbs/assets/logo.webp?v=20261006">
+<link rel="stylesheet" href="./styles.css?v=20261006">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="da624a16-4aff-4937-9284-92357a6e5438"></script>
+</head>
+<body>
+<div class="flagbar"></div>
+
+<nav>
+  <div class="wrap navrow">
+    <a class="brand" href="#top">
+      <img class="brandlogo" src="../100-verbs/assets/logo.webp?v=20261006" alt="Rhythm & Deutsch logo">
+      <span>Rhythm <b>&</b> Deutsch</span>
+    </a>
+    <div class="navlinks">
+      <a href="#learn">Learn</a>
+      <a href="#pattern">Pattern</a>
+      <a href="#practice">Practice</a>
+      <a href="#progress">Progress</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Conjugation Through Music · Vol. 3</div>
+    <h1>5 German Modal Verbs</h1>
+    <p>Master <strong>können, müssen, wollen, dürfen</strong> and <strong>sollen</strong> in the Präsens — then practise the sentence pattern that makes modal verbs work in real German.</p>
+    <div class="actions">
+      <a class="btn primary" href="#flashcards" data-umami-event="vol3-start-flashcards">Start flashcards →</a>
+      <a class="btn secondary" href="#practice" data-umami-event="vol3-open-quiz">Take a quiz</a>
+      <a class="btn secondary" href="#pattern" data-umami-event="vol3-open-modal-pattern">Learn the modal pattern</a>
+      <button class="btn ghost" id="printBtn">Print lesson</button>
+    </div>
+    <div class="meta">
+      <span>5 modal verbs</span><span>30 Präsens forms</span><span>6 practice modes</span><span>No signup</span><span>Progress stays on this device</span>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="section" id="learn">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">01 · Learn</div><h2>Know the forms.</h2></div>
+      <p>Choose a modal verb to inspect the full conjugation and useful example sentences.</p>
+    </div>
+
+    <div class="verbgrid" id="verbGrid"></div>
+    <article class="lesson" id="lesson"></article>
+
+    <div class="flashcard-section" id="flashcards">
+      <div class="flashcard-heading">
+        <div>
+          <div class="eyebrow">30 conjugation flashcards</div>
+          <h3>Recall before you reveal.</h3>
+        </div>
+        <p>Practise person + infinitive → form, reverse identification, or mix both directions.</p>
+      </div>
+
+      <div class="flash-toolbar">
+        <label>Verb
+          <select id="cardVerbFilter">
+            <option value="all">All five verbs</option>
+            <option value="können">können</option>
+            <option value="müssen">müssen</option>
+            <option value="wollen">wollen</option>
+            <option value="dürfen">dürfen</option>
+            <option value="sollen">sollen</option>
+          </select>
+        </label>
+        <label>Direction
+          <select id="cardDirection">
+            <option value="prompt-form">Person + infinitive → form</option>
+            <option value="form-prompt">Form → person + infinitive</option>
+            <option value="mixed">Mixed</option>
+          </select>
+        </label>
+        <button class="btn ghost compact" id="shuffleCards">↝ Shuffle</button>
+      </div>
+
+      <div class="flash-status">
+        <span id="cardPosition">1 / 30</span>
+        <span id="cardContext">können · modal</span>
+      </div>
+
+      <div class="flashcard-wrap">
+        <button class="flashcard" id="flashcard" type="button" aria-label="Flip flashcard" aria-pressed="false">
+          <span class="flashcard-inner">
+            <span class="card-face card-front">
+              <span class="card-number" id="frontNumber">01</span>
+              <span class="card-kicker" id="frontKicker">Conjugate</span>
+              <strong class="card-prompt" id="frontPrompt">ich + können</strong>
+              <span class="tap-hint">Tap to reveal</span>
+            </span>
+            <span class="card-face card-back">
+              <span class="card-number" id="backNumber">01</span>
+              <strong class="card-answer" id="backAnswer">ich kann</strong>
+              <span class="card-example-de" id="cardExampleDe">Ich kann Deutsch sprechen.</span>
+              <span class="card-example-en" id="cardExampleEn">I can speak German.</span>
+            </span>
+          </span>
+        </button>
+      </div>
+
+      <div class="flash-audio">
+        <button class="btn secondary compact" id="speakCard">🔊 Hear German</button>
+        <button class="btn secondary compact disabled" id="songCard" type="button" disabled>▶ Song link after release</button>
+      </div>
+      <div class="flash-rating">
+        <button class="review-btn" id="reviewCard">Practice again</button>
+        <button class="known-btn" id="knownCard">I know this ✓</button>
+      </div>
+      <div class="flash-nav">
+        <button class="btn ghost compact" id="prevCard">← Previous</button>
+        <button class="btn ghost compact" id="nextCard">Next →</button>
+      </div>
+      <p class="keyboard-note">Swipe ←/→ to move · Tap = flip · Keyboard: Space = flip · ←/→ = move · 1 = practice again · 2 = known</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pattern">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">02 · Pattern</div><h2>Modal verb now. Infinitive later.</h2></div>
+      <p>In a simple German main clause, the modal verb is conjugated and the second verb usually goes to the end as an infinitive.</p>
+    </div>
+
+    <div class="pattern-grid">
+      <article class="pattern-card">
+        <div class="pattern-rule">MODAL VERB + … + INFINITIVE</div>
+        <div class="pattern-sentence"><strong>Ich kann</strong> Deutsch <mark>sprechen</mark>.</div>
+        <div class="pattern-en">I can speak German.</div>
+      </article>
+      <article class="pattern-card">
+        <div class="pattern-rule">MODAL VERB + … + INFINITIVE</div>
+        <div class="pattern-sentence"><strong>Ich muss</strong> heute <mark>arbeiten</mark>.</div>
+        <div class="pattern-en">I have to work today.</div>
+      </article>
+      <article class="pattern-card">
+        <div class="pattern-rule">MODAL VERB + … + INFINITIVE</div>
+        <div class="pattern-sentence"><strong>Ich will</strong> nach Hause <mark>gehen</mark>.</div>
+        <div class="pattern-en">I want to go home.</div>
+      </article>
+    </div>
+
+    <div class="pattern-note">
+      <strong>Notice the singular:</strong>
+      <span>ich <b>kann</b> · du <b>kannst</b> · er <b>kann</b></span>
+      <span>ich <b>muss</b> · du <b>musst</b> · er <b>muss</b></span>
+      <span>ich <b>will</b> · du <b>willst</b> · er <b>will</b></span>
+      <p>The modal forms change strongly in the singular. The plural forms return closer to the infinitive pattern.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="practice">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">03 · Practice</div><h2>Make the pattern automatic.</h2></div>
+      <p>Meaning, conjugation, sentence completion, reverse recall and modal-sentence structure all draw from the same lesson.</p>
+    </div>
+    <div class="practice">
+      <div class="tabs" id="tabs"></div>
+      <div class="quiz">
+        <div class="qmeta"><span id="qMode"></span><span id="qCount"></span></div>
+        <div class="question" id="question"></div>
+        <div class="answers" id="answers"></div>
+        <div class="feedback" id="feedback"></div>
+        <div class="quizfoot"><span id="score"></span><button id="nextBtn" disabled>Next →</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="progress">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">04 · Retain</div><h2>Come back tomorrow.</h2></div>
+      <p>Short repeated recall beats cramming. Your progress is saved only in this browser.</p>
+    </div>
+
+    <div class="retain-grid">
+      <article class="retain-card">
+        <div class="retain-title">REINFORCED FORMS</div>
+        <div class="retain-number" id="mastered">0</div>
+        <div class="bar"><span id="bar"></span></div>
+        <div class="retain-copy" id="progressLabel">0 of 30 conjugation forms reinforced</div>
+        <div class="downloads">
+          <button class="btn secondary compact" id="csvBtn">Download CSV</button>
+          <button class="btn secondary compact" id="ankiBtn">Download Anki TSV</button>
+          <button class="btn ghost compact" id="resetBtn">Reset progress</button>
+        </div>
+      </article>
+
+      <article class="retain-card">
+        <div class="retain-title">3-PASS ROUTINE</div>
+        <ol class="routine">
+          <li><div><strong>Listen</strong><span>Hear the whole song once without stopping. Let the short singular forms land in rhythm.</span></div></li>
+          <li><div><strong>Notice</strong><span>Compare <em>kann/kannst</em>, <em>muss/musst</em>, <em>will/willst</em>, <em>darf/darfst</em>, <em>soll/sollst</em>.</span></div></li>
+          <li><div><strong>Produce</strong><span>Build a sentence: conjugated modal near the front, second verb in the infinitive at the end.</span></div></li>
+        </ol>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footrow">
+    <div class="footerbrand">
+      <img class="footerbrandlogo" src="../100-verbs/assets/logo.webp?v=20261006" alt="Rhythm & Deutsch logo">
+      <div>
+        <strong>Rhythm & Deutsch</strong>
+        <p>Learn German through music, rhythm and repetition. Listen. Repeat. Remember.</p>
+      </div>
+    </div>
+    <div class="small">LANGSAM · SCHRITT FÜR SCHRITT</div>
+  </div>
+</footer>
+
+<script src="./app.js?v=20261006"></script>
+</body>
+</html>
