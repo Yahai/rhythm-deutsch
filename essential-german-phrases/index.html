@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#11110f">
+<meta name="description" content="Interactive companion for 25 Essential German Phrases Through Music by Rhythm & Deutsch. Learn, hear, recall and practice useful A1 German phrases.">
+<title>25 Essential German Phrases Through Music | Rhythm & Deutsch</title>
+<link rel="icon" type="image/webp" href="../100-verbs/assets/logo.webp?v=20261009">
+<link rel="apple-touch-icon" href="../100-verbs/assets/logo.webp?v=20261009">
+<style>
+:root{--ink:#11110f;--paper:#f6f1e8;--card:#fffdf8;--muted:#716b61;--line:#d9d0c2;--red:#d62828;--gold:#f2b705;--green:#2f6b3d;--shadow:0 18px 55px rgba(40,30,18,.09);--r:24px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,select{font:inherit}button{cursor:pointer}a{color:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}.flagbar{height:7px;background:linear-gradient(90deg,#111 0 33.33%,var(--red) 33.33% 66.66%,var(--gold) 66.66%)}nav{position:sticky;top:0;z-index:20;background:rgba(246,241,232,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(17,17,15,.08)}.navrow{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:900;letter-spacing:.02em}.brand b{color:var(--red)}.brandlogo{width:48px;height:48px;object-fit:contain}.navlinks{display:flex;gap:18px}.navlinks a{text-decoration:none;font-size:14px;font-weight:750;color:var(--muted)}
+.hero{padding:76px 0 50px;background:radial-gradient(circle at 83% 18%,rgba(242,183,5,.12),transparent 33%)}.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:950;color:var(--red)}h1{font-size:clamp(48px,8.5vw,98px);line-height:.9;letter-spacing:-.06em;margin:12px 0 24px;max-width:950px}.hero p{max-width:820px;font-size:clamp(18px,2.2vw,24px);color:#504b44;margin:0}.actions,.meta,.downloads,.flash-audio,.flash-nav{display:flex;flex-wrap:wrap;gap:10px}.actions{margin-top:30px}.btn{border:0;border-radius:999px;padding:13px 18px;font-weight:850;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.btn.compact{padding:10px 14px;font-size:14px}.primary{background:var(--ink);color:#fff}.secondary{background:transparent;border:1px solid var(--ink)}.ghost{background:#ebe4d8;color:var(--ink)}.disabled{opacity:.48;cursor:not-allowed}.meta{margin-top:22px;color:var(--muted);font-size:13px}.meta span{padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.35)}
+.section{padding:36px 0 64px}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:22px;margin-bottom:22px}.sectionhead h2{font-size:clamp(30px,5vw,52px);line-height:1;letter-spacing:-.04em;margin:0}.sectionhead p{margin:0;max-width:560px;color:var(--muted)}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.filter{border:1px solid var(--line);background:rgba(255,255,255,.45);border-radius:999px;padding:10px 14px;font-weight:850;color:var(--ink)}.filter.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.phrasegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.phrase{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow);display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}.phrase-num{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#f0e9dd;color:var(--muted);font-size:12px;font-weight:950}.phrase-de{font-size:21px;font-weight:950;letter-spacing:-.02em}.phrase-en{color:var(--muted);margin-top:2px}.phrase-cat{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#8a8175;margin-top:7px;font-weight:850}.hear{border:0;border-radius:999px;background:var(--ink);color:white;padding:9px 12px;font-size:12px;font-weight:850;white-space:nowrap}
+.flash-toolbar{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end;margin-bottom:18px}.flash-toolbar label{font-size:12px;font-weight:850;color:var(--muted)}.flash-toolbar select{width:100%;display:block;margin-top:5px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:12px}.flash-status{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;font-weight:850;margin:0 3px 10px}.flashcard-wrap{perspective:1200px}.flashcard{display:block;width:100%;height:min(54vh,470px);min-height:360px;border:0;background:transparent;padding:0;touch-action:pan-y;-webkit-tap-highlight-color:transparent}.flashcard-inner{position:relative;display:block;width:100%;height:100%;transition:transform .55s cubic-bezier(.2,.75,.2,1);transform-style:preserve-3d}.flashcard.flipped .flashcard-inner{transform:rotateY(180deg)}.card-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--r);border:1px solid var(--line);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;background:var(--card)}.card-back{transform:rotateY(180deg);background:var(--ink);color:var(--paper)}.card-number{position:absolute;top:20px;left:22px;font-size:12px;font-weight:900;letter-spacing:.1em;color:var(--muted)}.card-back .card-number{color:#aaa49a}.card-kicker{font-size:12px;text-transform:uppercase;letter-spacing:.16em;font-weight:900;color:var(--muted);margin-bottom:12px}.card-prompt{font-size:clamp(34px,7vw,72px);line-height:1.03;font-weight:950;letter-spacing:-.05em;text-align:center;max-width:900px}.tap-hint{position:absolute;bottom:22px;font-size:12px;color:var(--muted)}.card-answer{font-size:clamp(28px,6vw,58px);line-height:1.05;font-weight:950;letter-spacing:-.04em;text-align:center}.card-german{font-size:18px;color:#c8c1b7;text-align:center;margin-top:18px}.flash-audio{justify-content:center;margin-top:14px}.flash-rating{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.review-btn,.known-btn{border-radius:999px;padding:13px 18px;font-weight:850}.review-btn{background:#fff1f1;color:#9b0810;border:1px solid #efc4c7}.known-btn{background:#eef8dd;color:#304d0d;border:1px solid #c7dda2}.flash-nav{justify-content:space-between;margin-top:10px}.keyboard-note{text-align:center;font-size:12px;color:var(--muted);margin:12px 0 0}
+.practice{background:var(--ink);color:white;padding:26px;border-radius:var(--r);box-shadow:var(--shadow)}.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}.tab{border:1px solid #3e3c38;background:#201f1c;color:#d9d4cc;padding:10px 13px;border-radius:999px;font-weight:850}.tab.active{background:var(--gold);color:#111;border-color:var(--gold)}.quiz{background:#171613;border:1px solid #302e29;border-radius:20px;padding:24px}.qmeta,.quizfoot{display:flex;justify-content:space-between;gap:16px;color:#aaa49a;font-size:12px;font-weight:850}.question{font-size:clamp(28px,5vw,48px);font-weight:950;letter-spacing:-.04em;line-height:1.07;margin:24px 0}.listen-btn{border:1px solid #575148;background:#24221e;color:#fff;padding:11px 14px;border-radius:999px;font-weight:850;margin:-6px 0 18px}.hidden{display:none}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{border:1px solid #4a4741;background:#25231f;color:#fff;border-radius:14px;padding:15px;text-align:left;font-weight:800}.answer:hover{border-color:#81796e}.answer.correct{background:#1d4b28;border-color:#367a46}.answer.wrong{background:#5a1f24;border-color:#a53b44}.answer:disabled{cursor:default}.feedback{min-height:28px;color:#d0cac1;margin:16px 0}.quizfoot button{border:0;border-radius:999px;padding:10px 15px;font-weight:900;background:var(--gold);color:#111}.quizfoot button:disabled{opacity:.35;cursor:not-allowed}
+.retain-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.retain-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--shadow)}.retain-title{font-size:11px;letter-spacing:.13em;font-weight:950;color:var(--muted)}.retain-number{font-size:76px;line-height:1;font-weight:950;letter-spacing:-.06em;margin:16px 0}.bar{height:10px;background:#e8dfd2;border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--gold));transition:width .35s}.retain-copy{color:var(--muted);margin:10px 0 20px}.routine{margin:18px 0 0;padding-left:22px}.routine li{padding:0 0 16px 8px}.routine strong,.routine span{display:block}.routine span{color:var(--muted);margin-top:3px}
+footer{padding:36px 0 46px;border-top:1px solid var(--line)}.footrow{display:flex;align-items:center;justify-content:space-between;gap:24px}.footerbrand{display:flex;align-items:center;gap:13px}.footerbrandlogo{width:54px;height:54px;object-fit:contain}.footerbrand p{margin:2px 0 0;color:var(--muted);font-size:13px}.small{font-size:11px;letter-spacing:.14em;color:var(--muted);font-weight:900}
+@media(max-width:760px){.navlinks{display:none}.hero{padding-top:52px}.phrasegrid,.retain-grid,.answers{grid-template-columns:1fr}.phrase{grid-template-columns:auto 1fr}.phrase .hear{grid-column:2;justify-self:start}.flash-toolbar{grid-template-columns:1fr 1fr}.flash-toolbar .btn{grid-column:1/-1}.sectionhead{align-items:flex-start;flex-direction:column}.flashcard{min-height:330px;height:48vh}.footrow{align-items:flex-start;flex-direction:column}.small{display:none}}
+@media print{nav,.actions,.filters,.flash-toolbar,.flash-audio,.flash-rating,.flash-nav,.keyboard-note,#flashcards,#practice,.downloads,.flagbar{display:none!important}.hero{padding:30px 0 20px}.phrasegrid{grid-template-columns:1fr 1fr}.phrase{box-shadow:none;break-inside:avoid}.section{padding:18px 0}.retain-grid{display:none}body{background:white}}
+
+</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="da624a16-4aff-4937-9284-92357a6e5438"></script>
+</head>
+<body>
+<div class="flagbar"></div>
+<nav>
+  <div class="wrap navrow">
+    <a class="brand" href="#top">
+      <img class="brandlogo" src="../100-verbs/assets/logo.webp?v=20261009" alt="Rhythm & Deutsch logo">
+      <span>Rhythm <b>&</b> Deutsch</span>
+    </a>
+    <div class="navlinks"><a href="#learn">Learn</a><a href="#flashcards">Flashcards</a><a href="#practice">Practice</a><a href="#progress">Progress</a></div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Useful German Through Music · A1</div>
+    <h1>25 Essential<br>German Phrases.</h1>
+    <p>Learn the phrases you need to greet people, understand conversations, ask for help, get around, order and pay — then make them stick through recall.</p>
+    <div class="actions">
+      <a class="btn primary" href="#flashcards" data-umami-event="phrases-start-flashcards">Start flashcards →</a>
+      <a class="btn secondary" href="#practice" data-umami-event="phrases-open-quiz">Take a quiz</a>
+      <a class="btn secondary" href="#learn" data-umami-event="phrases-browse-all">Browse all 25</a>
+      <button class="btn ghost" id="printBtn">Print phrases</button>
+    </div>
+    <div class="meta"><span>25 phrases</span><span>6 real-life situations</span><span>4 practice modes</span><span>Hear German</span><span>No signup</span></div>
+  </div>
+</header>
+
+<main>
+<section class="section" id="learn">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">01 · Learn</div><h2>Useful first. Memorable second.</h2></div>
+      <p>Choose a situation. Hear the German slowly and clearly, then use the English only to confirm meaning.</p>
+    </div>
+    <div class="filters" id="filters"></div>
+    <div class="phrasegrid" id="phraseGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="flashcards">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">02 · Flashcards</div><h2>Recall before you reveal.</h2></div>
+      <p>Switch direction, swipe through the deck and mark the phrases that are becoming automatic.</p>
+    </div>
+
+    <div class="flash-toolbar">
+      <label>Situation
+        <select id="cardCategory"><option value="all">All phrases</option></select>
+      </label>
+      <label>Direction
+        <select id="cardDirection">
+          <option value="de-en">German → English</option>
+          <option value="en-de">English → German</option>
+          <option value="mixed">Mixed</option>
+        </select>
+      </label>
+      <button class="btn ghost compact" id="shuffleCards">↝ Shuffle</button>
+    </div>
+
+    <div class="flash-status"><span id="cardPosition">1 / 25</span><span id="cardContext">Everyday basics</span></div>
+    <div class="flashcard-wrap">
+      <button class="flashcard" id="flashcard" type="button" aria-label="Flip flashcard" aria-pressed="false">
+        <span class="flashcard-inner">
+          <span class="card-face card-front">
+            <span class="card-number" id="frontNumber">01</span>
+            <span class="card-kicker" id="frontKicker">German</span>
+            <strong class="card-prompt" id="frontPrompt">Hallo!</strong>
+            <span class="tap-hint">Tap to reveal</span>
+          </span>
+          <span class="card-face card-back">
+            <span class="card-number" id="backNumber">01</span>
+            <strong class="card-answer" id="backAnswer">Hello!</strong>
+            <span class="card-german" id="cardGerman">Hallo!</span>
+          </span>
+        </span>
+      </button>
+    </div>
+    <div class="flash-audio">
+      <button class="btn secondary compact" id="speakCard" data-umami-event="phrases-hear-card">🔊 Hear German</button>
+      <button class="btn secondary compact disabled" id="songCard" type="button" disabled>▶ Song link after release</button>
+    </div>
+    <div class="flash-rating"><button class="review-btn" id="reviewCard">Practice again</button><button class="known-btn" id="knownCard">I know this ✓</button></div>
+    <div class="flash-nav"><button class="btn ghost compact" id="prevCard">← Previous</button><button class="btn ghost compact" id="nextCard">Next →</button></div>
+    <p class="keyboard-note">Swipe ←/→ to move · Tap = flip · Space = flip · ←/→ = move · 1 = practice again · 2 = known</p>
+  </div>
+</section>
+
+<section class="section" id="practice">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">03 · Practice</div><h2>Make the phrase come to you.</h2></div>
+      <p>Meaning, German recall, real-life situations and listening practice all draw from the same 25 phrases.</p>
+    </div>
+    <div class="practice">
+      <div class="tabs" id="tabs"></div>
+      <div class="quiz">
+        <div class="qmeta"><span id="qMode"></span><span id="qCount"></span></div>
+        <div class="question" id="question"></div>
+        <button class="listen-btn hidden" id="listenPrompt">🔊 Play German</button>
+        <div class="answers" id="answers"></div>
+        <div class="feedback" id="feedback"></div>
+        <div class="quizfoot"><span id="score"></span><button id="nextBtn" disabled>Next →</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="progress">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">04 · Retain</div><h2>Come back tomorrow.</h2></div>
+      <p>Short recall sessions beat rereading. Your progress stays only in this browser.</p>
+    </div>
+    <div class="retain-grid">
+      <article class="retain-card">
+        <div class="retain-title">REINFORCED PHRASES</div>
+        <div class="retain-number" id="mastered">0</div>
+        <div class="bar"><span id="bar"></span></div>
+        <div class="retain-copy" id="progressLabel">0 of 25 phrases reinforced</div>
+        <div class="downloads"><button class="btn secondary compact" id="csvBtn">Download CSV</button><button class="btn secondary compact" id="ankiBtn">Download Anki TSV</button><button class="btn ghost compact" id="resetBtn">Reset progress</button></div>
+      </article>
+      <article class="retain-card">
+        <div class="retain-title">3-PASS ROUTINE</div>
+        <ol class="routine">
+          <li><div><strong>Listen</strong><span>Play the full song once. Let the German lead; use the English callout only to confirm meaning.</span></div></li>
+          <li><div><strong>Recall</strong><span>Run 10 flashcards. Say the answer before you flip.</span></div></li>
+          <li><div><strong>Use</strong><span>Pick five phrases and imagine the real situation where you would actually say them.</span></div></li>
+        </ol>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap footrow">
+    <div class="footerbrand">
+      <img class="footerbrandlogo" src="../100-verbs/assets/logo.webp?v=20261009" alt="Rhythm & Deutsch logo">
+      <div><strong>Rhythm & Deutsch</strong><p>Learn German through music, rhythm and repetition. Listen. Repeat. Remember.</p></div>
+    </div>
+    <div class="small">ESSENTIAL PHRASES · A1</div>
+  </div>
+</footer>
+<script>
+(function(){
+"use strict";
+var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var PHRASES=[
+{id:1,de:"Hallo!",en:"Hello!",cat:"Everyday basics",scene:"Greet someone."},
+{id:2,de:"Guten Morgen!",en:"Good morning!",cat:"Everyday basics",scene:"Greet someone in the morning."},
+{id:3,de:"Wie geht’s?",en:"How are you?",cat:"Everyday basics",scene:"Ask how someone is."},
+{id:4,de:"Mir geht’s gut.",en:"I’m good.",cat:"Everyday basics",scene:"Say that you are doing well."},
+{id:5,de:"Danke!",en:"Thank you!",cat:"Everyday basics",scene:"Thank someone."},
+{id:6,de:"Bitte!",en:"Please! / You’re welcome!",cat:"Everyday basics",scene:"Say please or respond to thanks."},
+{id:7,de:"Entschuldigung!",en:"Excuse me!",cat:"Everyday basics",scene:"Get someone’s attention politely."},
+{id:8,de:"Kein Problem!",en:"No problem!",cat:"Everyday basics",scene:"Tell someone it is not a problem."},
+{id:9,de:"Ich verstehe nicht.",en:"I don’t understand.",cat:"Understanding",scene:"Say you do not understand."},
+{id:10,de:"Noch einmal, bitte.",en:"One more time, please.",cat:"Understanding",scene:"Ask someone to repeat."},
+{id:11,de:"Langsamer, bitte.",en:"More slowly, please.",cat:"Understanding",scene:"Ask someone to speak more slowly."},
+{id:12,de:"Was bedeutet das?",en:"What does that mean?",cat:"Understanding",scene:"Ask what something means."},
+{id:13,de:"Wie sagt man das auf Deutsch?",en:"How do you say that in German?",cat:"Understanding",scene:"Ask for the German expression."},
+{id:14,de:"Sprechen Sie Englisch?",en:"Do you speak English?",cat:"Understanding",scene:"Ask politely whether someone speaks English."},
+{id:15,de:"Ich spreche nur ein bisschen Deutsch.",en:"I only speak a little German.",cat:"Understanding",scene:"Explain that your German is limited."},
+{id:16,de:"Können Sie mir helfen?",en:"Can you help me?",cat:"Getting help",scene:"Ask someone politely for help."},
+{id:17,de:"Ich weiß nicht.",en:"I don’t know.",cat:"Getting help",scene:"Say that you do not know."},
+{id:18,de:"Wo ist die Toilette?",en:"Where is the bathroom?",cat:"Getting around",scene:"Ask where the bathroom is."},
+{id:19,de:"Wo ist der Bahnhof?",en:"Where is the train station?",cat:"Getting around",scene:"Ask where the train station is."},
+{id:20,de:"Wie viel kostet das?",en:"How much does that cost?",cat:"Shopping & paying",scene:"Ask the price."},
+{id:21,de:"Ich möchte einen Kaffee.",en:"I would like a coffee.",cat:"Food & drink",scene:"Order a coffee."},
+{id:22,de:"Ich hätte gern ein Wasser.",en:"I’d like some water.",cat:"Food & drink",scene:"Order water politely."},
+{id:23,de:"Ich brauche Hilfe.",en:"I need help.",cat:"Getting help",scene:"Say that you need help."},
+{id:24,de:"Kann ich mit Karte zahlen?",en:"Can I pay by card?",cat:"Shopping & paying",scene:"Ask whether you can pay by card."},
+{id:25,de:"Tschüss!",en:"Bye!",cat:"Everyday basics",scene:"Say goodbye informally."}
+];
+var CATS=[];PHRASES.forEach(function(p){if(CATS.indexOf(p.cat)<0)CATS.push(p.cat)});
+var STORAGE="rd-essential-phrases-v1";
+var progress={mastered:{},review:{},attempts:0,correct:0};
+try{progress=Object.assign(progress,JSON.parse(localStorage.getItem(STORAGE)||"{}"))}catch(e){}
+var state={filter:"all",cardPool:PHRASES.slice(),cardIndex:0,cardDirection:"de-en",mode:"meaning",count:0,correct:0,answered:false,q:null};
+var modes={meaning:"Meaning",recall:"German recall",situation:"Situation",listening:"Listening"};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]})}
+function save(){localStorage.setItem(STORAGE,JSON.stringify(progress));updateProgress()}
+function speakGerman(text){if(!("speechSynthesis" in window))return;window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(text);u.lang="de-DE";u.rate=.78;u.pitch=1;var vs=window.speechSynthesis.getVoices();var v=vs.find(function(x){return /^de(-|_)/i.test(x.lang)})||vs.find(function(x){return /German/i.test(x.name)});if(v)u.voice=v;window.speechSynthesis.speak(u)}
+function renderFilters(){var a=["all"].concat(CATS);$("#filters").innerHTML=a.map(function(c){return '<button class="filter '+(state.filter===c?'active':'')+'" data-cat="'+esc(c)+'">'+(c==="all"?"All 25":esc(c))+'</button>'}).join("");$$('.filter').forEach(function(b){b.onclick=function(){state.filter=b.dataset.cat;renderFilters();renderPhrases()}})}
+function renderPhrases(){var a=PHRASES.filter(function(p){return state.filter==="all"||p.cat===state.filter});$("#phraseGrid").innerHTML=a.map(function(p){return '<article class="phrase"><div class="phrase-num">'+String(p.id).padStart(2,"0")+'</div><div><div class="phrase-de">'+esc(p.de)+'</div><div class="phrase-en">'+esc(p.en)+'</div><div class="phrase-cat">'+esc(p.cat)+'</div></div><button class="hear" data-speak="'+encodeURIComponent(p.de)+'" data-umami-event="phrases-hear-german">🔊 Hear German</button></article>'}).join("")}
+function fillCategorySelect(){var opts='<option value="all">All phrases</option>'+CATS.map(function(c){return '<option value="'+esc(c)+'">'+esc(c)+'</option>'}).join("");$("#cardCategory").innerHTML=opts}
+function resetCardPool(){var c=$("#cardCategory").value;state.cardPool=PHRASES.filter(function(p){return c==="all"||p.cat===c});state.cardIndex=0;renderCard()}
+function currentCard(){return state.cardPool[state.cardIndex]||PHRASES[0]}
+function cardSides(p){var d=state.cardDirection;if(d==="mixed")d=p.id%2?"de-en":"en-de";return d==="de-en"?{k:"German",front:p.de,back:p.en,german:p.de}:{k:"English",front:p.en,back:p.de,german:p.de}}
+function renderCard(){var p=currentCard(),s=cardSides(p),c=$("#flashcard");c.classList.remove("flipped");c.setAttribute("aria-pressed","false");$("#frontNumber").textContent=$("#backNumber").textContent=String(p.id).padStart(2,"0");$("#frontKicker").textContent=s.k;$("#frontPrompt").textContent=s.front;$("#backAnswer").textContent=s.back;$("#cardGerman").textContent=s.german;$("#cardPosition").textContent=(state.cardIndex+1)+" / "+state.cardPool.length;$("#cardContext").textContent=p.cat}
+function nextCard(){state.cardIndex=(state.cardIndex+1)%state.cardPool.length;renderCard()}function prevCard(){state.cardIndex=(state.cardIndex-1+state.cardPool.length)%state.cardPool.length;renderCard()}
+function shuffleCards(){for(var i=state.cardPool.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=state.cardPool[i];state.cardPool[i]=state.cardPool[j];state.cardPool[j]=t}state.cardIndex=0;renderCard()}
+function markCard(type){var p=currentCard();if(type==="known"){progress.mastered[p.id]=1;delete progress.review[p.id]}else{progress.review[p.id]=1;delete progress.mastered[p.id]}save();nextCard()}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}function pick(a){return a[Math.floor(Math.random()*a.length)]}
+function answers(correct,pool){var u=Array.from(new Set(pool.filter(function(x){return x!==correct})));return shuffle([correct].concat(shuffle(u).slice(0,3)))}
+function question(){var p=pick(PHRASES),q="",correct="",pool=[],spoken=null;if(state.mode==="meaning"){q='What does “'+p.de+'” mean?';correct=p.en;pool=PHRASES.map(function(x){return x.en})}if(state.mode==="recall"){q='How do you say “'+p.en+'” in German?';correct=p.de;pool=PHRASES.map(function(x){return x.de})}if(state.mode==="situation"){q=p.scene;correct=p.de;pool=PHRASES.map(function(x){return x.de})}if(state.mode==="listening"){q="Listen, then choose the meaning.";correct=p.en;pool=PHRASES.map(function(x){return x.en});spoken=p.de}return{p:p,q:q,correct:correct,answers:answers(correct,pool),spoken:spoken}}
+function renderTabs(){$("#tabs").innerHTML=Object.keys(modes).map(function(k){return '<button class="tab '+(state.mode===k?'active':'')+'" data-mode="'+k+'" data-umami-event="phrases-quiz-mode" data-umami-event-mode="'+k+'">'+modes[k]+'</button>'}).join("");$$('.tab').forEach(function(b){b.onclick=function(){state.mode=b.dataset.mode;renderTabs();nextQuestion()}})}
+function nextQuestion(){state.answered=false;state.q=question();state.count++;$("#qMode").textContent=modes[state.mode];$("#qCount").textContent="Question "+state.count;$("#question").textContent=state.q.q;$("#listenPrompt").classList.toggle("hidden",!state.q.spoken);$("#answers").innerHTML=state.q.answers.map(function(a){return '<button class="answer" data-a="'+encodeURIComponent(a)+'">'+esc(a)+'</button>'}).join("");$("#feedback").textContent="";$("#nextBtn").disabled=true;$$('.answer').forEach(function(b){b.onclick=function(){answerQuestion(b,decodeURIComponent(b.dataset.a))}});score()}
+function answerQuestion(btn,a){if(state.answered)return;state.answered=true;progress.attempts++;var ok=a===state.q.correct;if(ok){state.correct++;progress.correct++;progress.mastered[state.q.p.id]=1;delete progress.review[state.q.p.id];btn.classList.add("correct");$("#feedback").textContent="Correct. "+state.q.p.de+" — "+state.q.p.en}else{progress.review[state.q.p.id]=1;btn.classList.add("wrong");$$('.answer').forEach(function(x){if(decodeURIComponent(x.dataset.a)===state.q.correct)x.classList.add("correct")});$("#feedback").textContent="Answer: "+state.q.correct}$$('.answer').forEach(function(x){x.disabled=true});$("#nextBtn").disabled=false;save();score()}
+function score(){var done=state.count-(state.answered?0:1);$("#score").textContent="This session: "+state.correct+"/"+Math.max(0,done)}
+function updateProgress(){var m=Math.min(25,Object.keys(progress.mastered).length);$("#mastered").textContent=m;$("#bar").style.width=(m/25*100)+"%";$("#progressLabel").textContent=m+" of 25 phrases reinforced"}
+function dl(name,text,type){var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type:type||"text/plain"}));a.download=name;a.click();setTimeout(function(){URL.revokeObjectURL(a.href)},500)}
+function csv(){var rows=["number,category,german,english"];PHRASES.forEach(function(p){rows.push([p.id,p.cat,p.de,p.en].map(function(x){return '"'+String(x).replaceAll('"','""')+'"'}).join(","))});dl("25-essential-german-phrases.csv",rows.join("\n"),"text/csv")}
+function anki(){dl("25-essential-german-phrases-anki.tsv",PHRASES.map(function(p){return p.de+"\t"+p.en+"\t"+p.cat}).join("\n"),"text/tab-separated-values")}
+var sx=0,sy=0,suppress=false;$("#flashcard").onclick=function(){if(suppress)return;var on=this.classList.toggle("flipped");this.setAttribute("aria-pressed",on?"true":"false")};$("#flashcard").addEventListener("touchstart",function(e){if(e.touches&&e.touches.length){sx=e.touches[0].clientX;sy=e.touches[0].clientY}},{passive:true});$("#flashcard").addEventListener("touchend",function(e){if(!e.changedTouches||!e.changedTouches.length)return;var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)<50||Math.abs(dx)<=Math.abs(dy)*1.15)return;suppress=true;dx<0?nextCard():prevCard();setTimeout(function(){suppress=false},250)},{passive:true});
+$("#cardCategory").onchange=resetCardPool;$("#cardDirection").onchange=function(){state.cardDirection=this.value;renderCard()};$("#shuffleCards").onclick=shuffleCards;$("#prevCard").onclick=prevCard;$("#nextCard").onclick=nextCard;$("#reviewCard").onclick=function(){markCard("review")};$("#knownCard").onclick=function(){markCard("known")};$("#speakCard").onclick=function(){speakGerman(currentCard().de)};$("#listenPrompt").onclick=function(){if(state.q&&state.q.spoken)speakGerman(state.q.spoken)};$("#nextBtn").onclick=nextQuestion;$("#csvBtn").onclick=csv;$("#ankiBtn").onclick=anki;$("#printBtn").onclick=function(){window.print()};$("#resetBtn").onclick=function(){if(confirm("Reset your phrase progress on this device?")){progress={mastered:{},review:{},attempts:0,correct:0};save();resetCardPool()}};
+document.addEventListener("click",function(e){var b=e.target.closest(".hear");if(!b)return;speakGerman(decodeURIComponent(b.dataset.speak))});document.addEventListener("keydown",function(e){if(["SELECT","INPUT","TEXTAREA"].indexOf(document.activeElement.tagName)>=0)return;if(e.key===" "){e.preventDefault();$("#flashcard").click()}if(e.key==="ArrowRight")nextCard();if(e.key==="ArrowLeft")prevCard();if(e.key==="1")markCard("review");if(e.key==="2")markCard("known")});
+renderFilters();renderPhrases();fillCategorySelect();renderTabs();resetCardPool();nextQuestion();updateProgress();
+})();
+
+</script>
+</body>
+</html>
