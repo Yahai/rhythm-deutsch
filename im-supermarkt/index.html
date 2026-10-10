@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#11110f">
+<meta name="description" content="Interactive companion for Im Supermarkt by Rhythm & Deutsch. Learn and practise 25 essential German shopping phrases through music, audio, flashcards and quizzes.">
+<title>Im Supermarkt — 25 German Shopping Phrases | Rhythm & Deutsch</title>
+<link rel="icon" type="image/webp" href="../100-verbs/assets/logo.webp?v=20261010">
+<link rel="apple-touch-icon" href="../100-verbs/assets/logo.webp?v=20261010">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="da624a16-4aff-4937-9284-92357a6e5438"></script>
+<style>
+:root{--ink:#11110f;--paper:#f6f1e8;--card:#fffdf8;--muted:#716b61;--line:#d9d0c2;--red:#d62828;--gold:#f2b705;--green:#2f6b3d;--blue:#24405a;--shadow:0 18px 55px rgba(40,30,18,.09);--r:24px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}.flagbar{height:7px;background:linear-gradient(90deg,#111 0 33.33%,var(--red) 33.33% 66.66%,var(--gold) 66.66%)}nav{position:sticky;top:0;z-index:20;background:rgba(246,241,232,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(17,17,15,.08)}.navrow{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:900;letter-spacing:.02em}.brand b{color:var(--red)}.brandlogo{width:48px;height:48px;object-fit:contain}.navlinks{display:flex;gap:18px}.navlinks a{text-decoration:none;font-size:14px;font-weight:750;color:var(--muted)}
+.hero{padding:76px 0 50px;background:radial-gradient(circle at 82% 18%,rgba(36,64,90,.13),transparent 34%),radial-gradient(circle at 70% 70%,rgba(214,40,40,.08),transparent 30%)}.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:950;color:var(--red)}h1{font-size:clamp(48px,8.5vw,98px);line-height:.9;letter-spacing:-.06em;margin:12px 0 24px;max-width:950px}.hero p{max-width:820px;font-size:clamp(18px,2.2vw,24px);color:#504b44;margin:0}.actions,.meta,.downloads,.flash-audio,.flash-nav{display:flex;flex-wrap:wrap;gap:10px}.actions{margin-top:30px}.btn{border:0;border-radius:999px;padding:13px 18px;font-weight:850;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.btn.compact{padding:10px 14px;font-size:14px}.primary{background:var(--ink);color:#fff}.secondary{background:transparent;border:1px solid var(--ink)}.ghost{background:#ebe4d8;color:var(--ink)}.meta{margin-top:22px;color:var(--muted);font-size:13px}.meta span{padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.38)}
+.section{padding:36px 0 64px}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:22px;margin-bottom:22px}.sectionhead h2{font-size:clamp(30px,5vw,52px);line-height:1;letter-spacing:-.04em;margin:0}.sectionhead p{margin:0;max-width:580px;color:var(--muted)}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px}.filters{display:flex;gap:8px;flex-wrap:wrap;flex:1}.filter{border:1px solid var(--line);background:rgba(255,255,255,.45);border-radius:999px;padding:10px 14px;font-weight:850;color:var(--ink)}.filter.active{background:var(--ink);color:#fff;border-color:var(--ink)}.search{min-width:240px;flex:0 1 320px;border:1px solid var(--line);border-radius:999px;padding:11px 15px;background:var(--card);color:var(--ink)}
+.phrasegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.phrase{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow);display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}.phrase-num{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#f0e9dd;color:var(--muted);font-size:12px;font-weight:950}.phrase-de{font-size:21px;font-weight:950;letter-spacing:-.02em}.phrase-en{color:var(--muted);margin-top:2px}.phrase-cat{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#8a8175;margin-top:7px;font-weight:850}.hear{border:0;border-radius:999px;background:var(--ink);color:white;padding:9px 12px;font-size:12px;font-weight:850;white-space:nowrap}
+.chaptergrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.chapter{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;border:1px solid var(--line);background:var(--card);border-radius:16px}.chapter time{font-weight:950;color:var(--red)}.chapter span{color:var(--muted);text-align:right}
+.flash-toolbar{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end;margin-bottom:18px}.flash-toolbar label{font-size:12px;font-weight:850;color:var(--muted)}.flash-toolbar select{width:100%;display:block;margin-top:5px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:12px}.flash-status{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;font-weight:850;margin:0 3px 10px}.flashcard-wrap{perspective:1200px}.flashcard{display:block;width:100%;height:min(54vh,470px);min-height:360px;border:0;background:transparent;padding:0;touch-action:pan-y;-webkit-tap-highlight-color:transparent}.flashcard-inner{position:relative;display:block;width:100%;height:100%;transition:transform .55s cubic-bezier(.2,.75,.2,1);transform-style:preserve-3d}.flashcard.flipped .flashcard-inner{transform:rotateY(180deg)}.card-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--r);border:1px solid var(--line);box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px;background:var(--card)}.card-back{transform:rotateY(180deg);background:var(--ink);color:var(--paper)}.card-number{position:absolute;top:20px;left:22px;font-size:12px;font-weight:900;letter-spacing:.1em;color:var(--muted)}.card-back .card-number{color:#aaa49a}.card-kicker{font-size:12px;text-transform:uppercase;letter-spacing:.16em;font-weight:900;color:var(--muted);margin-bottom:12px}.card-prompt{font-size:clamp(34px,7vw,72px);line-height:1.03;font-weight:950;letter-spacing:-.05em;text-align:center;max-width:900px}.tap-hint{position:absolute;bottom:22px;font-size:12px;color:var(--muted)}.card-answer{font-size:clamp(28px,6vw,58px);line-height:1.05;font-weight:950;letter-spacing:-.04em;text-align:center}.card-german{font-size:18px;color:#c8c1b7;text-align:center;margin-top:18px}.flash-audio{justify-content:center;margin-top:14px}.flash-rating{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.review-btn,.known-btn{border-radius:999px;padding:13px 18px;font-weight:850}.review-btn{background:#fff1f1;color:#9b0810;border:1px solid #efc4c7}.known-btn{background:#eef8dd;color:#304d0d;border:1px solid #c7dda2}.flash-nav{justify-content:space-between;margin-top:10px}.keyboard-note{text-align:center;font-size:12px;color:var(--muted);margin:12px 0 0}
+.quizbox{background:var(--ink);color:white;padding:26px;border-radius:var(--r);box-shadow:var(--shadow)}.quiztitle{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:16px}.quiztitle strong{font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold)}.qmeta,.quizfoot{display:flex;justify-content:space-between;gap:16px;color:#aaa49a;font-size:12px;font-weight:850}.question{font-size:clamp(28px,5vw,48px);font-weight:950;letter-spacing:-.04em;line-height:1.07;margin:24px 0}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{border:1px solid #4a4741;background:#25231f;color:#fff;border-radius:14px;padding:15px;text-align:left;font-weight:800}.answer:hover{border-color:#81796e}.answer.correct{background:#1d4b28;border-color:#367a46}.answer.wrong{background:#5a1f24;border-color:#a53b44}.answer:disabled{cursor:default}.feedback{min-height:28px;color:#d0cac1;margin:16px 0}.quizfoot button{border:0;border-radius:999px;padding:10px 15px;font-weight:900;background:var(--gold);color:#111}.quizfoot button:disabled{opacity:.35;cursor:not-allowed}
+.retain-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.retain-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--shadow)}.retain-title{font-size:11px;letter-spacing:.13em;font-weight:950;color:var(--muted)}.retain-number{font-size:76px;line-height:1;font-weight:950;letter-spacing:-.06em;margin:16px 0}.bar{height:10px;background:#e8dfd2;border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--gold));transition:width .35s}.retain-copy{color:var(--muted);margin:10px 0 20px}.routine{margin:18px 0 0;padding-left:22px}.routine li{padding:0 0 16px 8px}.routine strong,.routine span{display:block}.routine span{color:var(--muted);margin-top:3px}
+footer{padding:36px 0 46px;border-top:1px solid var(--line)}.footrow{display:flex;align-items:center;justify-content:space-between;gap:24px}.footerbrand{display:flex;align-items:center;gap:13px}.footerbrandlogo{width:54px;height:54px;object-fit:contain}.footerbrand p{margin:2px 0 0;color:var(--muted);font-size:13px}.small{font-size:11px;letter-spacing:.14em;color:var(--muted);font-weight:900}
+@media(max-width:760px){.navlinks{display:none}.hero{padding-top:52px}.phrasegrid,.retain-grid,.answers,.chaptergrid{grid-template-columns:1fr}.phrase{grid-template-columns:auto 1fr}.phrase .hear{grid-column:2;justify-self:start}.flash-toolbar{grid-template-columns:1fr 1fr}.flash-toolbar .btn{grid-column:1/-1}.sectionhead{align-items:flex-start;flex-direction:column}.flashcard{min-height:330px;height:48vh}.footrow{align-items:flex-start;flex-direction:column}.small{display:none}.chapter span{text-align:left}.chapter{flex-direction:column}.search{width:100%;flex-basis:100%}}
+@media print{nav,.actions,.toolbar,.flash-toolbar,.flash-audio,.flash-rating,.flash-nav,.keyboard-note,#flashcards,#quiz,.downloads,.flagbar{display:none!important}.hero{padding:30px 0 20px}.phrasegrid{grid-template-columns:1fr 1fr}.phrase{box-shadow:none;break-inside:avoid}.section{padding:18px 0}.retain-grid{display:none}body{background:white}}
+</style>
+</head>
+<body>
+<div class="flagbar"></div>
+<nav>
+  <div class="wrap navrow">
+    <a class="brand" href="#top"><img class="brandlogo" src="../100-verbs/assets/logo.webp?v=20261010" alt="Rhythm & Deutsch logo"><span>Rhythm <b>&</b> Deutsch</span></a>
+    <div class="navlinks"><a href="#learn">Learn</a><a href="#flashcards">Flashcards</a><a href="#quiz">Quiz</a><a href="#progress">Progress</a></div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Phrases with Beats · A1</div>
+    <h1>Im Supermarkt.</h1>
+    <p>Learn 25 essential German shopping phrases — from finding products and asking prices to choosing, checking out and paying.</p>
+    <div class="actions">
+      <a class="btn primary" href="#flashcards" data-umami-event="supermarkt-start-flashcards">Start flashcards →</a>
+      <a class="btn secondary" href="#quiz" data-umami-event="supermarkt-open-quiz">Take the 10-question quiz</a>
+      <a class="btn secondary" href="#learn" data-umami-event="supermarkt-browse-all">Browse all 25</a>
+      <button class="btn ghost" id="printBtn">Print phrases</button>
+    </div>
+    <div class="meta"><span>25 phrases</span><span>5 shopping stages</span><span>10-question quiz</span><span>Hear German</span><span>No signup</span></div>
+  </div>
+</header>
+
+<main>
+<section class="section" id="learn">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">01 · Learn</div><h2>Shop from start to finish.</h2></div>
+      <p>Filter by stage, search any phrase, and hear the German slowly before practising recall.</p>
+    </div>
+    <div class="toolbar"><div class="filters" id="filters"></div><input class="search" id="searchBox" type="search" placeholder="Search German or English…" aria-label="Search phrases"></div>
+    <div class="phrasegrid" id="phraseGrid"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">Song map</div><h2>Follow the shopping trip.</h2></div>
+      <p>The song moves through a real supermarket visit rather than teaching disconnected vocabulary.</p>
+    </div>
+    <div class="chaptergrid">
+      <div class="chapter"><time>00:10</time><span>Finding things</span></div>
+      <div class="chapter"><time>00:27</time><span>Around the store</span></div>
+      <div class="chapter"><time>00:48</time><span>Chorus — Find it, check it, take it</span></div>
+      <div class="chapter"><time>01:12</time><span>Choosing</span></div>
+      <div class="chapter"><time>01:30</time><span>Chorus — Repeat and remember</span></div>
+      <div class="chapter"><time>01:45</time><span>Ready to check out</span></div>
+      <div class="chapter"><time>02:07</time><span>At the checkout</span></div>
+      <div class="chapter"><time>02:26</time><span>Rapid review — Shopping from start to finish</span></div>
+      <div class="chapter"><time>03:00</time><span>Final chorus — Confident shopping</span></div>
+      <div class="chapter"><time>03:33</time><span>Goodbye & instrumental outro</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="flashcards">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">02 · Flashcards</div><h2>Recall before you reveal.</h2></div>
+      <p>Switch direction, swipe through the deck, hear the German and mark what is becoming automatic.</p>
+    </div>
+    <div class="flash-toolbar">
+      <label>Shopping stage<select id="cardCategory"><option value="all">All phrases</option></select></label>
+      <label>Direction<select id="cardDirection"><option value="de-en">German → English</option><option value="en-de">English → German</option><option value="mixed">Mixed</option></select></label>
+      <button class="btn ghost compact" id="shuffleCards">↝ Shuffle</button>
+    </div>
+    <div class="flash-status"><span id="cardPosition">1 / 25</span><span id="cardContext"></span></div>
+    <div class="flashcard-wrap">
+      <button class="flashcard" id="flashcard" type="button" aria-label="Flip flashcard" aria-pressed="false">
+        <span class="flashcard-inner">
+          <span class="card-face card-front"><span class="card-number" id="frontNumber">01</span><span class="card-kicker" id="frontKicker">German</span><strong class="card-prompt" id="frontPrompt"></strong><span class="tap-hint">Tap to reveal</span></span>
+          <span class="card-face card-back"><span class="card-number" id="backNumber">01</span><strong class="card-answer" id="backAnswer"></strong><span class="card-german" id="cardGerman"></span></span>
+        </span>
+      </button>
+    </div>
+    <div class="flash-audio"><button class="btn secondary compact" id="speakCard" data-umami-event="supermarkt-hear-card">🔊 Hear German</button></div>
+    <div class="flash-rating"><button class="review-btn" id="reviewCard">Practice again</button><button class="known-btn" id="knownCard">I know this ✓</button></div>
+    <div class="flash-nav"><button class="btn ghost compact" id="prevCard">← Previous</button><button class="btn ghost compact" id="nextCard">Next →</button></div>
+    <p class="keyboard-note">Swipe ←/→ to move · Tap = flip · Space = flip · ←/→ = move · 1 = practice again · 2 = known</p>
+  </div>
+</section>
+
+<section class="section" id="quiz">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">03 · Quiz</div><h2>Can you shop without the lyrics?</h2></div>
+      <p>The same 10 multiple-choice questions used for the end-of-video quiz, now interactive.</p>
+    </div>
+    <div class="quizbox">
+      <div class="quiztitle"><strong>Im Supermarkt · 10 Questions</strong><button class="btn ghost compact" id="restartQuiz">Restart</button></div>
+      <div class="qmeta"><span id="qCount">Question 1 of 10</span><span id="qStage"></span></div>
+      <div class="question" id="question"></div>
+      <div class="answers" id="answers"></div>
+      <div class="feedback" id="feedback"></div>
+      <div class="quizfoot"><span id="score">Score: 0/0</span><button id="nextBtn" disabled>Next →</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="progress">
+  <div class="wrap">
+    <div class="sectionhead">
+      <div><div class="eyebrow">04 · Retain</div><h2>Come back tomorrow.</h2></div>
+      <p>Short recall sessions beat rereading. Your progress stays only in this browser.</p>
+    </div>
+    <div class="retain-grid">
+      <article class="retain-card">
+        <div class="retain-title">REINFORCED PHRASES</div><div class="retain-number" id="mastered">0</div>
+        <div class="bar"><span id="bar"></span></div><div class="retain-copy" id="progressLabel">0 of 25 phrases reinforced</div>
+        <div class="downloads"><button class="btn secondary compact" id="csvBtn">Download CSV</button><button class="btn secondary compact" id="ankiBtn">Download Anki TSV</button><button class="btn ghost compact" id="resetBtn">Reset progress</button></div>
+      </article>
+      <article class="retain-card">
+        <div class="retain-title">3-PASS ROUTINE</div>
+        <ol class="routine">
+          <li><div><strong>Listen</strong><span>Play the song once without pausing. Let the shopping story carry the phrases.</span></div></li>
+          <li><div><strong>Recall</strong><span>Run 10 flashcards. Say the German before you flip whenever the English appears first.</span></div></li>
+          <li><div><strong>Shop</strong><span>Imagine one supermarket trip and say the phrases you would need from entrance to checkout.</span></div></li>
+        </ol>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap footrow"><div class="footerbrand"><img class="footerbrandlogo" src="../100-verbs/assets/logo.webp?v=20261010" alt="Rhythm & Deutsch logo"><div><strong>Rhythm & Deutsch</strong><p>Learn German through music, rhythm and repetition. Listen. Sing. Remember.</p></div></div><div class="small">IM SUPERMARKT · PHRASES WITH BEATS</div></div></footer>
+
+<script>
+(function(){
+"use strict";
+var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var PHRASES=[
+{id:1,de:"Guten Tag!",en:"Hello!",cat:"Finding things",scene:"Greet supermarket staff."},
+{id:2,de:"Entschuldigung!",en:"Excuse me!",cat:"Finding things",scene:"Get a staff member’s attention politely."},
+{id:3,de:"Wo finde ich die Milch?",en:"Where can I find the milk?",cat:"Finding things",scene:"Ask where the milk is."},
+{id:4,de:"Haben Sie Brot?",en:"Do you have bread?",cat:"Finding things",scene:"Ask whether the shop has bread."},
+{id:5,de:"Ich suche Reis.",en:"I’m looking for rice.",cat:"Finding things",scene:"Say what product you are looking for."},
+{id:6,de:"Wo ist das Obst?",en:"Where is the fruit?",cat:"Around the store",scene:"Ask where the fruit is."},
+{id:7,de:"Wo ist das Gemüse?",en:"Where are the vegetables?",cat:"Around the store",scene:"Ask where the vegetables are."},
+{id:8,de:"Wie viel kostet das?",en:"How much does that cost?",cat:"Around the store",scene:"Ask the price of an item."},
+{id:9,de:"Was kostet ein Kilo?",en:"How much is a kilo?",cat:"Around the store",scene:"Ask the price per kilo."},
+{id:10,de:"Ich nehme ein Kilo.",en:"I’ll take one kilo.",cat:"Around the store",scene:"Choose a quantity of one kilo."},
+{id:11,de:"Ist das im Angebot?",en:"Is this on sale?",cat:"Choosing",scene:"Ask whether an item is discounted."},
+{id:12,de:"Ich nehme das.",en:"I’ll take that.",cat:"Choosing",scene:"Say you have decided to buy an item."},
+{id:13,de:"Ich brauche nur eine Flasche.",en:"I only need one bottle.",cat:"Choosing",scene:"Say you need only one bottle."},
+{id:14,de:"Haben Sie etwas Billigeres?",en:"Do you have anything cheaper?",cat:"Choosing",scene:"Ask for a cheaper option."},
+{id:15,de:"Das ist zu teuer.",en:"That’s too expensive.",cat:"Choosing",scene:"Say the price is too high."},
+{id:16,de:"Das ist alles.",en:"That’s all.",cat:"Checkout",scene:"Tell the cashier you have nothing else."},
+{id:17,de:"Brauchen Sie eine Tüte?",en:"Do you need a bag?",cat:"Checkout",scene:"Understand the cashier asking about a bag."},
+{id:18,de:"Ja, bitte.",en:"Yes, please.",cat:"Checkout",scene:"Accept the bag politely."},
+{id:19,de:"Nein, danke.",en:"No, thank you.",cat:"Checkout",scene:"Decline something politely."},
+{id:20,de:"Möchten Sie den Kassenbon?",en:"Would you like the receipt?",cat:"Checkout",scene:"Understand the cashier asking about the receipt."},
+{id:21,de:"Den Kassenbon, bitte.",en:"The receipt, please.",cat:"Payment & goodbye",scene:"Ask for the receipt."},
+{id:22,de:"Kann ich mit Karte zahlen?",en:"Can I pay by card?",cat:"Payment & goodbye",scene:"Ask whether card payment is possible."},
+{id:23,de:"Ich zahle bar.",en:"I’ll pay cash.",cat:"Payment & goodbye",scene:"Say you will pay in cash."},
+{id:24,de:"Das macht zwölf Euro.",en:"That comes to twelve euros.",cat:"Payment & goodbye",scene:"Understand the cashier stating the total."},
+{id:25,de:"Danke, auf Wiedersehen!",en:"Thank you, goodbye!",cat:"Payment & goodbye",scene:"Say goodbye politely after paying."}
+];
+var QUIZ=[
+{stage:"Finding things",q:"How do you say “Where can I find the milk?”",a:"Wo finde ich die Milch?",opts:["Wo ist das Gemüse?","Wo finde ich die Milch?","Haben Sie Brot?","Ich suche Reis."],pid:3},
+{stage:"Finding things",q:"What does “Ich suche Reis.” mean?",a:"I’m looking for rice.",opts:["I need rice.","I’ll take the rice.","I’m looking for rice.","Where is the rice?"],pid:5},
+{stage:"Around the store",q:"How do you ask “How much does that cost?”",a:"Wie viel kostet das?",opts:["Ist das im Angebot?","Was kostet ein Kilo?","Wie viel kostet das?","Das ist zu teuer."],pid:8},
+{stage:"Around the store",q:"How do you ask “How much is a kilo?”",a:"Was kostet ein Kilo?",opts:["Was kostet ein Kilo?","Ich nehme ein Kilo.","Wie viel kostet das?","Haben Sie ein Kilo?"],pid:9},
+{stage:"Choosing",q:"Which phrase means “Is this on sale?”",a:"Ist das im Angebot?",opts:["Ist das zu teuer?","Ist das im Angebot?","Haben Sie etwas Billigeres?","Ich nehme das."],pid:11},
+{stage:"Choosing",q:"The item is too expensive. What do you say?",a:"Das ist zu teuer.",opts:["Das ist alles.","Das ist zu teuer.","Ich nehme das.","Ich zahle bar."],pid:15},
+{stage:"Choosing",q:"How do you say “I’ll take that”?",a:"Ich nehme das.",opts:["Ich suche das.","Ich brauche das.","Ich nehme das.","Ich zahle das."],pid:12},
+{stage:"Checkout",q:"What does “Brauchen Sie eine Tüte?” mean?",a:"Do you need a bag?",opts:["Do you need a bag?","Do you have a receipt?","Would you like to pay?","Do you need help?"],pid:17},
+{stage:"Payment",q:"How do you ask “Can I pay by card?”",a:"Kann ich mit Karte zahlen?",opts:["Ich zahle bar.","Kann ich mit Karte zahlen?","Möchten Sie den Kassenbon?","Das macht zwölf Euro."],pid:22},
+{stage:"Payment",q:"How do you ask for the receipt?",a:"Den Kassenbon, bitte.",opts:["Eine Tüte, bitte.","Die Rechnung, bitte.","Den Kassenbon, bitte.","Mit Karte, bitte."],pid:21}
+];
+var CATS=[];PHRASES.forEach(function(p){if(CATS.indexOf(p.cat)<0)CATS.push(p.cat)});
+var STORAGE="rd-im-supermarkt-v1",progress={mastered:{},review:{},attempts:0,correct:0};
+try{progress=Object.assign(progress,JSON.parse(localStorage.getItem(STORAGE)||"{}"))}catch(e){}
+var state={filter:"all",query:"",cardPool:PHRASES.slice(),cardIndex:0,cardDirection:"de-en",quizIndex:0,quizCorrect:0,quizAnswered:false};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]})}
+function save(){localStorage.setItem(STORAGE,JSON.stringify(progress));updateProgress()}
+function speakGerman(text){if(!("speechSynthesis" in window))return;window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(text);u.lang="de-DE";u.rate=.76;u.pitch=1;var vs=window.speechSynthesis.getVoices();var v=vs.find(function(x){return /^de(-|_)/i.test(x.lang)})||vs.find(function(x){return /German/i.test(x.name)});if(v)u.voice=v;window.speechSynthesis.speak(u)}
+function renderFilters(){var a=["all"].concat(CATS);$("#filters").innerHTML=a.map(function(c){return '<button class="filter '+(state.filter===c?'active':'')+'" data-cat="'+esc(c)+'">'+(c==="all"?"All 25":esc(c))+'</button>'}).join("");$$(".filter").forEach(function(b){b.onclick=function(){state.filter=b.dataset.cat;renderFilters();renderPhrases()}})}
+function renderPhrases(){var q=state.query.toLowerCase();var a=PHRASES.filter(function(p){return(state.filter==="all"||p.cat===state.filter)&&(!q||p.de.toLowerCase().indexOf(q)>=0||p.en.toLowerCase().indexOf(q)>=0)});$("#phraseGrid").innerHTML=a.length?a.map(function(p){return '<article class="phrase"><div class="phrase-num">'+String(p.id).padStart(2,"0")+'</div><div><div class="phrase-de">'+esc(p.de)+'</div><div class="phrase-en">'+esc(p.en)+'</div><div class="phrase-cat">'+esc(p.cat)+'</div></div><button class="hear" data-speak="'+encodeURIComponent(p.de)+'" data-umami-event="supermarkt-hear-german">🔊 Hear German</button></article>'}).join(""):'<p>No matching phrases.</p>'}
+function fillCategorySelect(){var opts='<option value="all">All phrases</option>'+CATS.map(function(c){return '<option value="'+esc(c)+'">'+esc(c)+'</option>'}).join("");$("#cardCategory").innerHTML=opts}
+function resetCardPool(){var c=$("#cardCategory").value;state.cardPool=PHRASES.filter(function(p){return c==="all"||p.cat===c});state.cardIndex=0;renderCard()}
+function currentCard(){return state.cardPool[state.cardIndex]||PHRASES[0]}
+function cardSides(p){var d=state.cardDirection;if(d==="mixed")d=p.id%2?"de-en":"en-de";return d==="de-en"?{k:"German",front:p.de,back:p.en,german:p.de}:{k:"English",front:p.en,back:p.de,german:p.de}}
+function renderCard(){var p=currentCard(),s=cardSides(p),c=$("#flashcard");c.classList.remove("flipped");c.setAttribute("aria-pressed","false");$("#frontNumber").textContent=$("#backNumber").textContent=String(p.id).padStart(2,"0");$("#frontKicker").textContent=s.k;$("#frontPrompt").textContent=s.front;$("#backAnswer").textContent=s.back;$("#cardGerman").textContent=s.german;$("#cardPosition").textContent=(state.cardIndex+1)+" / "+state.cardPool.length;$("#cardContext").textContent=p.cat}
+function nextCard(){state.cardIndex=(state.cardIndex+1)%state.cardPool.length;renderCard()}function prevCard(){state.cardIndex=(state.cardIndex-1+state.cardPool.length)%state.cardPool.length;renderCard()}
+function shuffleCards(){for(var i=state.cardPool.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=state.cardPool[i];state.cardPool[i]=state.cardPool[j];state.cardPool[j]=t}state.cardIndex=0;renderCard()}
+function markCard(type){var p=currentCard();if(type==="known"){progress.mastered[p.id]=1;delete progress.review[p.id]}else{progress.review[p.id]=1;delete progress.mastered[p.id]}save();nextCard()}
+function renderQuiz(){var q=QUIZ[state.quizIndex];state.quizAnswered=false;$("#qCount").textContent="Question "+(state.quizIndex+1)+" of "+QUIZ.length;$("#qStage").textContent=q.stage;$("#question").textContent=q.q;$("#answers").innerHTML=q.opts.map(function(o){return '<button class="answer" data-a="'+encodeURIComponent(o)+'">'+esc(o)+'</button>'}).join("");$("#feedback").textContent="";$("#nextBtn").disabled=true;$$(".answer").forEach(function(b){b.onclick=function(){answerQuiz(b,decodeURIComponent(b.dataset.a))}});quizScore()}
+function answerQuiz(btn,a){if(state.quizAnswered)return;state.quizAnswered=true;var q=QUIZ[state.quizIndex],ok=a===q.a;progress.attempts++;if(ok){state.quizCorrect++;progress.correct++;progress.mastered[q.pid]=1;delete progress.review[q.pid];btn.classList.add("correct");$("#feedback").textContent="Correct — "+q.a}else{progress.review[q.pid]=1;btn.classList.add("wrong");$$(".answer").forEach(function(x){if(decodeURIComponent(x.dataset.a)===q.a)x.classList.add("correct")});$("#feedback").textContent="Answer: "+q.a}$$(".answer").forEach(function(x){x.disabled=true});$("#nextBtn").disabled=false;save();quizScore()}
+function quizScore(){var done=state.quizIndex+(state.quizAnswered?1:0);$("#score").textContent="Score: "+state.quizCorrect+"/"+done}
+function nextQuiz(){if(state.quizIndex<QUIZ.length-1){state.quizIndex++;renderQuiz()}else{$("#question").textContent="Quiz complete!";$("#answers").innerHTML="";$("#feedback").textContent="You scored "+state.quizCorrect+" out of "+QUIZ.length+".";$("#qCount").textContent="Finished";$("#qStage").textContent="";$("#nextBtn").disabled=true}}
+function restartQuiz(){state.quizIndex=0;state.quizCorrect=0;state.quizAnswered=false;renderQuiz()}
+function updateProgress(){var m=Math.min(25,Object.keys(progress.mastered).length);$("#mastered").textContent=m;$("#bar").style.width=(m/25*100)+"%";$("#progressLabel").textContent=m+" of 25 phrases reinforced"}
+function dl(name,text,type){var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type:type||"text/plain"}));a.download=name;a.click();setTimeout(function(){URL.revokeObjectURL(a.href)},500)}
+function csv(){var rows=["number,category,german,english"];PHRASES.forEach(function(p){rows.push([p.id,p.cat,p.de,p.en].map(function(x){return '"'+String(x).replaceAll('"','""')+'"'}).join(","))});dl("im-supermarkt-25-german-shopping-phrases.csv",rows.join("\n"),"text/csv")}
+function anki(){dl("im-supermarkt-anki.tsv",PHRASES.map(function(p){return p.de+"\t"+p.en+"\t"+p.cat}).join("\n"),"text/tab-separated-values")}
+var sx=0,sy=0,suppress=false;$("#flashcard").onclick=function(){if(suppress)return;var on=this.classList.toggle("flipped");this.setAttribute("aria-pressed",on?"true":"false")};$("#flashcard").addEventListener("touchstart",function(e){if(e.touches&&e.touches.length){sx=e.touches[0].clientX;sy=e.touches[0].clientY}},{passive:true});$("#flashcard").addEventListener("touchend",function(e){if(!e.changedTouches||!e.changedTouches.length)return;var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)<50||Math.abs(dx)<=Math.abs(dy)*1.15)return;suppress=true;dx<0?nextCard():prevCard();setTimeout(function(){suppress=false},250)},{passive:true});
+$("#searchBox").oninput=function(){state.query=this.value||"";renderPhrases()};$("#cardCategory").onchange=resetCardPool;$("#cardDirection").onchange=function(){state.cardDirection=this.value;renderCard()};$("#shuffleCards").onclick=shuffleCards;$("#prevCard").onclick=prevCard;$("#nextCard").onclick=nextCard;$("#reviewCard").onclick=function(){markCard("review")};$("#knownCard").onclick=function(){markCard("known")};$("#speakCard").onclick=function(){speakGerman(currentCard().de)};$("#nextBtn").onclick=nextQuiz;$("#restartQuiz").onclick=restartQuiz;$("#csvBtn").onclick=csv;$("#ankiBtn").onclick=anki;$("#printBtn").onclick=function(){window.print()};$("#resetBtn").onclick=function(){if(confirm("Reset your Im Supermarkt progress on this device?")){progress={mastered:{},review:{},attempts:0,correct:0};save();resetCardPool();restartQuiz()}};
+document.addEventListener("click",function(e){var b=e.target.closest(".hear");if(!b)return;speakGerman(decodeURIComponent(b.dataset.speak))});document.addEventListener("keydown",function(e){if(["SELECT","INPUT","TEXTAREA"].indexOf(document.activeElement.tagName)>=0)return;if(e.key===" "){e.preventDefault();$("#flashcard").click()}if(e.key==="ArrowRight")nextCard();if(e.key==="ArrowLeft")prevCard();if(e.key==="1")markCard("review");if(e.key==="2")markCard("known")});
+renderFilters();renderPhrases();fillCategorySelect();resetCardPool();renderQuiz();updateProgress();
+})();
+</script>
+</body>
+</html>
