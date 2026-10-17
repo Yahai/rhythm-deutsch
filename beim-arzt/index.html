@@ -105,7 +105,7 @@ footer{padding:36px 0 46px;border-top:1px solid var(--line)}.footrow{display:fle
     </div>
     <div class="flash-audio">
       <button class="btn secondary compact" id="speakCard" data-umami-event="arzt-hear-card">🔊 Hear German</button>
-      <button class="btn secondary compact disabled" id="songCard" type="button" disabled>▶ Song link after release</button>
+      <a class="btn secondary compact" id="songCard" href="https://youtu.be/63jrAVFIEaw" target="_blank" rel="noopener">Hear it in the song ↗</a>
     </div>
     <div class="flash-rating"><button class="review-btn" id="reviewCard">Practice again</button><button class="known-btn" id="knownCard">I know this ✓</button></div>
     <div class="flash-nav"><button class="btn ghost compact" id="prevCard">← Previous</button><button class="btn ghost compact" id="nextCard">Next →</button></div>
@@ -189,7 +189,7 @@ function fillCategorySelect(){var opts='<option value="all">All phrases</option>
 function resetCardPool(){var c=$("#cardCategory").value;state.cardPool=PHRASES.filter(function(p){return c==="all"||p.cat===c});state.cardIndex=0;renderCard()}
 function currentCard(){return state.cardPool[state.cardIndex]||PHRASES[0]}
 function cardSides(p){var d=state.cardDirection;if(d==="mixed")d=p.id%2?"de-en":"en-de";return d==="de-en"?{k:"German",front:p.de,back:p.en,german:p.de}:{k:"English",front:p.en,back:p.de,german:p.de}}
-function renderCard(){var p=currentCard(),s=cardSides(p),c=$("#flashcard");c.classList.remove("flipped");c.setAttribute("aria-pressed","false");$("#frontNumber").textContent=$("#backNumber").textContent=String(p.id).padStart(2,"0");$("#frontKicker").textContent=s.k;$("#frontPrompt").textContent=s.front;$("#backAnswer").textContent=s.back;$("#cardGerman").textContent=s.german;$("#cardPosition").textContent=(state.cardIndex+1)+" / "+state.cardPool.length;$("#cardContext").textContent=p.cat}
+function renderCard(){var p=currentCard(),s=cardSides(p),c=$("#flashcard");c.classList.remove("flipped");c.setAttribute("aria-pressed","false");$("#frontNumber").textContent=$("#backNumber").textContent=String(p.id).padStart(2,"0");$("#frontKicker").textContent=s.k;$("#frontPrompt").textContent=s.front;$("#backAnswer").textContent=s.back;$("#cardGerman").textContent=s.german;$("#cardPosition").textContent=(state.cardIndex+1)+" / "+state.cardPool.length;$("#cardContext").textContent=p.cat;$("#songCard").href="https://youtu.be/63jrAVFIEaw?t="+Math.floor(p.startMs/1000)}
 function nextCard(){state.cardIndex=(state.cardIndex+1)%state.cardPool.length;renderCard()}function prevCard(){state.cardIndex=(state.cardIndex-1+state.cardPool.length)%state.cardPool.length;renderCard()}
 function shuffleCards(){for(var i=state.cardPool.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=state.cardPool[i];state.cardPool[i]=state.cardPool[j];state.cardPool[j]=t}state.cardIndex=0;renderCard()}
 function markCard(type){var p=currentCard();if(type==="known"){progress.mastered[p.id]=1;delete progress.review[p.id]}else{progress.review[p.id]=1;delete progress.mastered[p.id]}save();nextCard()}
